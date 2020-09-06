@@ -23,7 +23,6 @@ let Filter = React.createClass({
       defaultValue: e.target.value,
     });
     console.log("тыц");
-    this.SortABC();
   },
 
   refreash: function () {
