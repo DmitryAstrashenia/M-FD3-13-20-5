@@ -1,0 +1,13 @@
+.Filter {
+    width: 260px;
+}
+
+.Filter input {
+    margin-left: 5px;
+}
+
+.Filter select {
+    width: 220px;
+    margin-top: 10px;
+}
+
