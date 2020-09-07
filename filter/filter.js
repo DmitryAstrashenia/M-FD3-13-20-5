@@ -18,10 +18,15 @@ let Filter = React.createClass({
           newDataBase.push(el);
         }
       });
-      this.setState({
-        dataBase: newDataBase,
-      });
-    } else {
+      this.setState(
+        {
+          dataBase: newDataBase,
+        },
+        console.log(newDataBase),
+        console.log(this.state.dataBase)
+      );
+    }
+    if (this.state.inputValue === "") {
       this.setState({
         dataBase: this.props.dataBase,
       });
@@ -101,6 +106,7 @@ let Filter = React.createClass({
       {
         className: "Filter",
       },
+
       React.DOM.input({
         type: "checkbox",
         checked: this.state.isChecked,
