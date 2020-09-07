@@ -23,7 +23,6 @@ let Filter = React.createClass({
       defaultValue: e.target.value,
     });
     console.log("тыц");
-    this.SortABC();
   },
 
   refreash: function () {
@@ -76,16 +75,14 @@ let Filter = React.createClass({
     let dataBaseCodeOption = [];
     this.state.dataBase.forEach((el) => {
       dataBaseCodeOption.push(
-        React.DOM.option(
-          {
+        React.DOM.option({
             key: `${el.code}`,
           },
           `${el.text}`
         )
       );
     });
-    let dataBaseCode = React.DOM.select(
-      {
+    let dataBaseCode = React.DOM.select({
         className: "list",
         name: "list",
         size: "5",
@@ -93,8 +90,7 @@ let Filter = React.createClass({
       dataBaseCodeOption
     );
 
-    return React.DOM.div(
-      {
+    return React.DOM.div({
         className: "Filter",
       },
       React.DOM.input({
