@@ -10,46 +10,21 @@ let Filter = React.createClass({
   },
 
   filter: function () {
-    let newDataBase = [];
+    let newDataBase = this.props.dataBase.slice();
     if (this.state.inputValue) {
+      newDataBase = [];
       this.props.dataBase.forEach((el) => {
-        str = el.text;
-        if (str.match(this.state.inputValue)) {
+        if (el.match(this.state.inputValue)) {
           newDataBase.push(el);
         }
       });
-      this.setState(
-        {
-          dataBase: newDataBase,
-        },
-        console.log(newDataBase),
-        console.log(this.state.dataBase)
-      );
     }
-    if (this.state.inputValue === "") {
-      this.setState({
-        dataBase: this.props.dataBase,
-      });
-    }
-
     if (this.state.isChecked) {
-      let myarray = [];
-      this.state.dataBase.forEach((el) => {
-        myarray.push(el.text);
-      });
-      myarray = myarray.sort();
-      let ABCdataBase = [];
-      myarray.forEach((el) => {
-        this.state.dataBase.forEach((element) => {
-          if (element.text === el) {
-            ABCdataBase.push(element);
-          }
-        });
-      });
-      this.setState({
-        dataBase: ABCdataBase,
-      });
+      newDataBase = newDataBase.sort();
     }
+    this.setState({
+      dataBase: newDataBase,
+    });
   },
 
   refreash: function () {
@@ -82,26 +57,6 @@ let Filter = React.createClass({
   },
 
   render: function () {
-    let dataBaseCodeOption = [];
-    this.state.dataBase.forEach((el) => {
-      dataBaseCodeOption.push(
-        React.DOM.option(
-          {
-            key: `${el.code}`,
-          },
-          `${el.text}`
-        )
-      );
-    });
-    let dataBaseCode = React.DOM.select(
-      {
-        className: "list",
-        name: "list",
-        size: "5",
-      },
-      dataBaseCodeOption
-    );
-
     return React.DOM.div(
       {
         className: "Filter",
@@ -123,7 +78,12 @@ let Filter = React.createClass({
         value: "сброс",
         onClick: this.refreash,
       }),
-      dataBaseCode
+      React.DOM.div(
+        {
+          className: "textView",
+        },
+        this.state.dataBase.join("\n")
+      )
     );
   },
 });
