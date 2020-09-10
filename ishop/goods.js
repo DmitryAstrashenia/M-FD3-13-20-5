@@ -11,24 +11,20 @@ let Goods = React.createClass({
     let goodsCardsArr = [];
     this.props.goods.forEach((element) => {
       let goodsCard = element;
-      let goodsCardCode = React.DOM.ul(
-        {
+      let goodsCardCode = React.DOM.ul({
           key: goodsCard.vendorCode,
           className: "Card",
         },
-        React.DOM.li(
-          {
+        React.DOM.li({
             className: "Name",
           },
-          React.DOM.h3(
-            {
+          React.DOM.h3({
               className: null,
             },
             goodsCard.name
           )
         ),
-        React.DOM.li(
-          {
+        React.DOM.li({
             className: "Img",
           },
           React.DOM.img({
@@ -36,25 +32,21 @@ let Goods = React.createClass({
             src: goodsCard.img,
           })
         ),
-        React.DOM.li(
-          {
+        React.DOM.li({
             className: "Price",
           },
-          React.DOM.h4(
-            {
+          React.DOM.h4({
               className: null,
             },
             "Цена: " + goodsCard.price + "BYN"
           )
         ),
-        React.DOM.li(
-          {
+        React.DOM.li({
             className: "Number",
           },
           "Кол-во на складе: " + goodsCard.number + "шт."
         ),
-        React.DOM.button(
-          {
+        React.DOM.button({
             className: "Button",
           },
           "Купить"
@@ -62,23 +54,20 @@ let Goods = React.createClass({
       );
       goodsCardsArr.push(goodsCardCode);
     });
+    console.log(goodsCardsArr);
 
-    return React.DOM.div(
-      {
+    return React.DOM.div({
         className: "Goods",
       },
-      React.DOM.h2(
-        {
+      React.DOM.h2({
           className: "sectionName",
         },
         this.props.sectionName
       ),
-      React.DOM.div(
-        {
+      React.DOM.div({
           className: "Wrapper",
         },
-        React.DOM.div(
-          {
+        React.DOM.div({
             className: "GoodsCardsArr",
           },
           goodsCardsArr
