@@ -13,6 +13,7 @@ class Shop extends React.Component {
     goods: this.props.goods,
     markedProductCode: null,
     viewProduct: null,
+    editProduct: null,
   };
 
   deleteCard = (code) => {
@@ -41,6 +42,12 @@ class Shop extends React.Component {
     });
   };
 
+  edit = (code) => {
+    this.setState({
+      editProduct: code,
+    });
+  };
+
   render() {
     let goodsCardsArr = this.state.goods.map((el) => (
       <GoodsList
@@ -54,6 +61,7 @@ class Shop extends React.Component {
         mark={this.mark}
         marked={this.state.markedProductCode}
         view={this.view}
+        edit={this.edit}
       />
     ));
 
@@ -70,6 +78,7 @@ class Shop extends React.Component {
             deleteCard={this.deleteCard}
             mark={this.mark}
             viewProduct={this.state.viewProduct}
+            editProduct={this.state.editProduct}
           />
         );
       }
@@ -77,15 +86,15 @@ class Shop extends React.Component {
 
     return this.state.viewProduct ? (
       <div className="Shop">
-        <h2 className="sectionName">{this.props.sectionName}</h2>
-        <div className="GoodsCardsArr">{goodsCardsArr}</div>
+        <h2 className="sectionName"> {this.props.sectionName} </h2>{" "}
+        <div className="GoodsCardsArr"> {goodsCardsArr} </div>{" "}
         <input type="button" value="add" id="add" />
-        <div className="GoodsCardsArr">{goodsCard}</div>
+        <div className="GoodsCardsArr"> {goodsCard} </div>{" "}
       </div>
     ) : (
       <div className="Shop">
-        <h2 className="sectionName">{this.props.sectionName}</h2>
-        <div className="GoodsCardsArr">{goodsCardsArr}</div>
+        <h2 className="sectionName"> {this.props.sectionName} </h2>{" "}
+        <div className="GoodsCardsArr"> {goodsCardsArr} </div>{" "}
         <input type="button" value="add" id="add" />
       </div>
     );

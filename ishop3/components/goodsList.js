@@ -18,12 +18,16 @@ class GoodsList extends React.Component {
     this.props.view(this.props.code);
   };
 
+  answerEdit = () => {
+    this.props.edit(this.props.code);
+  };
+
   render() {
     let classNames = ["Card"];
     if (this.props.marked === this.props.code) {
       classNames.push("mark");
     }
-    if (this.props.viewProduct != null) {
+    if (this.props.viewProduct != null && this.props.editProduct === null) {
       return (
         <ul key={this.props.vendorCode} className={classNames.join(" ")}>
           <li className="Name">
@@ -40,6 +44,32 @@ class GoodsList extends React.Component {
           </li>
         </ul>
       );
+    }
+    if (this.props.viewProduct != null && this.props.editProduct != null) {
+      return (
+        <ul key={this.props.vendorCode} className={classNames.join(" ")}>
+          <li className="Name">
+            <input type="text" defaultValue={this.props.name} />
+          </li>
+          <li className="ImgEdit">
+            <input type="text" defaultValue={this.props.img} />
+          </li>
+          <li className="PriceEdit">
+            <input
+              type="text"
+              defaultValue={"Цена: " + this.props.price + "BYN"}
+            />
+          </li>
+          <li className="NumberEdit">
+            <input
+              type="text"
+              defaultValue={"Кол-во на складе:" + this.props.number + "шт."}
+            />
+          </li>
+          <button className="ButtonEdit">{"Сохранить"}</button>
+          <button className="ButtonEdit">{"Закрыть"}</button>
+        </ul>
+      );
     } else {
       return (
         <ul
@@ -54,6 +84,15 @@ class GoodsList extends React.Component {
               value="x"
               id="delete"
               onClick={this.answerClicked}
+            />
+          </li>
+          <li>
+            <input
+              type="button"
+              className="edit far fa-edit"
+              value="&#xf044;"
+              id="edit"
+              onClick={this.answerEdit}
             />
           </li>
           <li className="Name">

@@ -20,6 +20,18 @@
     margin: 10px auto 10px auto;
 }
 
+.Card .ImgEdit {
+    padding-top: 40px;
+}
+
+.Card .PriceEdit {
+    padding-top: 40px;
+}
+
+.Card .NumberEdit {
+    padding-top: 40px;
+}
+
 .Card .Number {
     font-size: 12px;
     color: #2b8000;
@@ -53,6 +65,11 @@
     box-shadow: inset 0 -1px 1px rgba(0, 0, 0, .1), inset 0 1px 2px rgba(0, 0, 0, .3), inset 0 0 0 60px rgba(255, 255, 0, .45);
 }
 
+.Card .ButtonEdit {
+    width: 88px;
+    margin-top: 30px;
+}
+
 .Card .btn-close {
     padding: 0;
     width: 22px;
@@ -66,4 +83,15 @@
 
 .Card.mark {
     border-color: red;
+}
+
+.Card .edit {
+    font-size: 12px;
+    right: 10px;
+    top: 10px;
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    cursor: pointer;
 }
