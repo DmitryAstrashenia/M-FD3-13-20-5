@@ -30,8 +30,14 @@
 .CardEdit .messageErr {
     color: red;
     font-size: 12px;
+    position: absolute;
+    left: 25%;
 }
 
 .CardEdit .invisible {
     display: none;
+}
+
+.CardEdit li {
+    position: relative;
 }
