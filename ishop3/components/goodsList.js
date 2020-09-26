@@ -43,7 +43,7 @@ class GoodsList extends React.Component {
         />
       );
     }
-    
+
     if (this.props.viewProduct != null && this.props.editProduct != null) {
       return (
         <EditGoodsCard
@@ -85,19 +85,19 @@ class GoodsList extends React.Component {
               onClick={this.answerEdit}
             />
           </li>
-          <li className="Name">
+          <li className="name">
             <h3> {this.props.name} </h3>
           </li>
-          <li className="Img">
+          <li className="img">
             <img src={this.props.img} alt="img_pump" />
           </li>
-          <li className="Price">
+          <li className="price">
             <h4> {"Цена: " + this.props.price + "BYN"} </h4>
           </li>
-          <li className="Number">
+          <li className="number">
             {"Кол-во на складе:" + this.props.number + "шт."}
           </li>
-          <button className="Button"> {"Купить"} </button>
+          <button className="button"> {"Купить"} </button>
         </ul>
       );
     }
