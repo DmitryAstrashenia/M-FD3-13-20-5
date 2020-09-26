@@ -6,3 +6,8 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.Shop .GoodsCard {
+  display: flex;
+  flex-wrap: wrap;
+}

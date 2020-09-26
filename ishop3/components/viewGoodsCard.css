@@ -1,0 +1,23 @@
+.CardView {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    list-style: none;
+    text-align: center;
+    padding: 18px;
+    min-width: 175px;
+    margin-right: 40px;
+    display: inline;
+    position: relative;
+}
+
+.CardView .Number {
+    font-size: 12px;
+    color: #2b8000;
+    margin: -10px 0 10px 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.CardView>li>img {
+    height: 150px;
+    margin: 10px auto 10px auto;
+}

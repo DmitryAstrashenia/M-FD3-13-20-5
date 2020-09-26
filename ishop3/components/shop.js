@@ -14,6 +14,7 @@ class Shop extends React.Component {
     markedProductCode: null,
     viewProduct: null,
     editProduct: null,
+    disabledProduct: null,
   };
 
   deleteCard = (code) => {
@@ -30,6 +31,36 @@ class Shop extends React.Component {
     }
   };
 
+  addCard = () => {
+    let newGoods = this.state.goods;
+    let maxVendorCode = 0;
+    this.state.goods.forEach((e) => {
+      if (e.vendorCode > maxVendorCode) {
+        maxVendorCode = e.vendorCode;
+      }
+    });
+    let newProduct = {
+      vendorCode: ++maxVendorCode,
+      name: "Наименование",
+      price: 0,
+      img:
+        "https://lh3.googleusercontent.com/proxy/utahQcE5e2pfkiKbEzRwtINapgoWhjMLPahw0MiWTwja4Uq7UXR5nS36okujH3vg0T0FIOEVuHGWgaJ61Kxvnh1vHjjOGXg0sQ4",
+      number: 0,
+    };
+    newGoods.push(newProduct);
+    this.setState({
+      goods: newGoods,
+    });
+  };
+
+  makeСhanges = (id, name, img, price, number) => {
+    this.state.goods.forEach((e) => {
+      if (e.vendorCode === id) {
+        (e.name = name), (e.img = img), (e.price = price), (e.number = number);
+      }
+    });
+  };
+
   mark = (code) => {
     this.setState({
       markedProductCode: code,
@@ -42,9 +73,10 @@ class Shop extends React.Component {
     });
   };
 
-  edit = (code) => {
+  edit = (code, status) => {
     this.setState({
       editProduct: code,
+      disabledProduct: status,
     });
   };
 
@@ -62,6 +94,7 @@ class Shop extends React.Component {
         marked={this.state.markedProductCode}
         view={this.view}
         edit={this.edit}
+        disabledProduct={this.state.disabledProduct}
       />
     ));
 
@@ -75,10 +108,11 @@ class Shop extends React.Component {
             img={el.img}
             price={el.price}
             number={el.number}
-            deleteCard={this.deleteCard}
-            mark={this.mark}
             viewProduct={this.state.viewProduct}
             editProduct={this.state.editProduct}
+            edit={this.edit}
+            disabledProduct={this.state.disabledProduct}
+            makeСhanges={this.makeСhanges}
           />
         );
       }
@@ -86,16 +120,16 @@ class Shop extends React.Component {
 
     return this.state.viewProduct ? (
       <div className="Shop">
-        <h2 className="sectionName"> {this.props.sectionName} </h2>{" "}
-        <div className="GoodsCardsArr"> {goodsCardsArr} </div>{" "}
-        <input type="button" value="add" id="add" />
-        <div className="GoodsCardsArr"> {goodsCard} </div>{" "}
+        <h2 className="sectionName"> {this.props.sectionName} </h2>
+        <div className="GoodsCardsArr"> {goodsCardsArr} </div>
+        <input type="button" value="add" id="add" onClick={this.addCard} />
+        <div className="GoodsCard"> {goodsCard} </div>
       </div>
     ) : (
       <div className="Shop">
-        <h2 className="sectionName"> {this.props.sectionName} </h2>{" "}
-        <div className="GoodsCardsArr"> {goodsCardsArr} </div>{" "}
-        <input type="button" value="add" id="add" />
+        <h2 className="sectionName"> {this.props.sectionName} </h2>
+        <div className="GoodsCardsArr"> {goodsCardsArr} </div>
+        <input type="button" value="add" id="add" onClick={this.addCard} />
       </div>
     );
   }

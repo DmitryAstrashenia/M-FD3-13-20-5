@@ -20,17 +20,7 @@
     margin: 10px auto 10px auto;
 }
 
-.Card .ImgEdit {
-    padding-top: 40px;
-}
 
-.Card .PriceEdit {
-    padding-top: 40px;
-}
-
-.Card .NumberEdit {
-    padding-top: 40px;
-}
 
 .Card .Number {
     font-size: 12px;
@@ -63,11 +53,6 @@
     padding: calc(.25em + 1px) .5em calc(.25em - 1px);
     border-color: rgba(177, 159, 0, 1);
     box-shadow: inset 0 -1px 1px rgba(0, 0, 0, .1), inset 0 1px 2px rgba(0, 0, 0, .3), inset 0 0 0 60px rgba(255, 255, 0, .45);
-}
-
-.Card .ButtonEdit {
-    width: 88px;
-    margin-top: 30px;
 }
 
 .Card .btn-close {
