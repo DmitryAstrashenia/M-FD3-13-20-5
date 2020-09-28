@@ -1,5 +1,5 @@
 "use strict";
-import "./editGoodsCard.css";
+import "./EditGoodsCard.css";
 import React from "react";
 
 class EditGoodsCard extends React.Component {

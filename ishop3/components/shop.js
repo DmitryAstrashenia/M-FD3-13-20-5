@@ -1,8 +1,10 @@
 "use strict";
-import "./shop.css";
+import "./Shop.css";
 import React from "react";
-import GoodsList from "./goodsList";
-import PropTypes from "prop-types";
+import GoodsList from "./GoodsList";
+import ViewGoodsCard from "./ViewGoodsCard";
+import EditGoodsCard from "./EditGoodsCard";
+import NewCard from "./NewCard";
 
 class Shop extends React.Component {
   static defaultProps = {
@@ -15,6 +17,8 @@ class Shop extends React.Component {
     viewProduct: null,
     editProduct: null,
     disabledProduct: null,
+    newProduct: null,
+    display: null,
   };
 
   deleteCard = (code) => {
@@ -31,23 +35,24 @@ class Shop extends React.Component {
     }
   };
 
-  addCard = () => {
-    let newGoods = this.state.goods;
-    let maxVendorCode = 0;
-    this.state.goods.forEach((e) => {
-      if (e.vendorCode > maxVendorCode) {
-        maxVendorCode = e.vendorCode;
-      }
+  cleanCard = () => {
+    this.setState({
+      newProduct: true,
+      disabledProduct: "disabled",
+      markedProductCode: null,
+      display: "none",
     });
-    let newProduct = {
-      vendorCode: ++maxVendorCode,
-      name: "Наименование",
-      price: 0,
-      img:
-        "https://lh3.googleusercontent.com/proxy/utahQcE5e2pfkiKbEzRwtINapgoWhjMLPahw0MiWTwja4Uq7UXR5nS36okujH3vg0T0FIOEVuHGWgaJ61Kxvnh1vHjjOGXg0sQ4",
-      number: 0,
-    };
-    newGoods.push(newProduct);
+  };
+
+  addCard = (id, name, img, price, number) => {
+    let newGoods = this.state.goods;
+    let newCard = {};
+    newCard.vendorCode = id;
+    newCard.name = name;
+    newCard.price = price;
+    newCard.img = img;
+    newCard.number = number;
+    newGoods.push(newCard);
     this.setState({
       goods: newGoods,
     });
@@ -77,59 +82,95 @@ class Shop extends React.Component {
     this.setState({
       editProduct: code,
       disabledProduct: status,
+      newProduct: null,
+      display: null,
     });
   };
 
   render() {
-    let goodsCardsArr = this.state.goods.map((el) => (
-      <GoodsList
-        key={el.vendorCode}
-        code={el.vendorCode}
-        name={el.name}
-        img={el.img}
-        price={el.price}
-        number={el.number}
-        deleteCard={this.deleteCard}
-        mark={this.mark}
-        marked={this.state.markedProductCode}
-        view={this.view}
-        edit={this.edit}
-        disabledProduct={this.state.disabledProduct}
-      />
-    ));
-
-    let goodsCard = this.state.goods.map((el) => {
-      if (el.vendorCode === this.state.viewProduct) {
-        return (
-          <GoodsList
-            key={el.vendorCode}
-            code={el.vendorCode}
-            name={el.name}
-            img={el.img}
-            price={el.price}
-            number={el.number}
-            viewProduct={this.state.viewProduct}
-            editProduct={this.state.editProduct}
-            edit={this.edit}
-            disabledProduct={this.state.disabledProduct}
-            makeСhanges={this.makeСhanges}
-          />
-        );
-      }
+    let goodsCardsArr = this.state.goods.map((el) => {
+      return (
+        <GoodsList
+          key={el.vendorCode}
+          code={el.vendorCode}
+          name={el.name}
+          img={el.img}
+          price={el.price}
+          number={el.number}
+          deleteCard={this.deleteCard}
+          mark={this.mark}
+          marked={this.state.markedProductCode}
+          view={this.view}
+          edit={this.edit}
+          disabledProduct={this.state.disabledProduct}
+        />
+      );
     });
 
-    return this.state.viewProduct ? (
+    let goodsCard = this.state.newProduct ? (
+      <NewCard
+        goods={this.state.goods}
+        edit={this.edit}
+        addCard={this.addCard}
+      />
+    ) : (
+      this.state.goods.map((el) => {
+        if (el.vendorCode === this.state.viewProduct) {
+          if (
+            this.state.viewProduct != null &&
+            this.state.editProduct != null
+          ) {
+            return (
+              <EditGoodsCard
+                id={el.vendorCode}
+                key={el.vendorCode}
+                name={el.name}
+                img={el.img}
+                price={el.price}
+                number={el.number}
+                edit={this.edit}
+                makeСhanges={this.makeСhanges}
+              />
+            );
+          } else {
+            return (
+              <ViewGoodsCard
+                key={el.vendorCode}
+                name={el.name}
+                img={el.img}
+                price={el.price}
+                number={el.number}
+              />
+            );
+          }
+        }
+      })
+    );
+
+    return this.state.viewProduct || this.state.newProduct ? (
       <div className="Shop">
         <h2 className="sectionName"> {this.props.sectionName} </h2>
         <div className="GoodsCardsArr"> {goodsCardsArr} </div>
-        <input type="button" value="add" id="add" onClick={this.addCard} />
+        <input
+          type="button"
+          value="Добавить"
+          id="add"
+          style={{ display: this.state.display }}
+          onClick={this.cleanCard}
+        />
         <div className="GoodsCard"> {goodsCard} </div>
       </div>
     ) : (
       <div className="Shop">
         <h2 className="sectionName"> {this.props.sectionName} </h2>
         <div className="GoodsCardsArr"> {goodsCardsArr} </div>
-        <input type="button" value="add" id="add" onClick={this.addCard} />
+        <input
+          type="button"
+          value="Добавить"
+          id="add"
+          style={{ display: this.state.display }}
+          onClick={this.cleanCard}
+        />
       </div>
     );
   }

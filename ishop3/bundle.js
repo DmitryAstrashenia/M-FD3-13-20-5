@@ -498,21 +498,6 @@ module.exports = ReactPropTypesSecret;
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(13);
-} else {
-  module.exports = __webpack_require__(14);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -531,6 +516,21 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
   module.exports = __webpack_require__(26)();
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(13);
+} else {
+  module.exports = __webpack_require__(14);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -565,19 +565,16 @@ var _reactDom = __webpack_require__(11);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _shop = __webpack_require__(19);
+var _Shop = __webpack_require__(19);
 
-var _shop2 = _interopRequireDefault(_shop);
+var _Shop2 = _interopRequireDefault(_Shop);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var sectionNameText = "Шестеренный насос Hydra-Pack";
-var goodsArr = __webpack_require__(27);
+var goodsArr = __webpack_require__(31);
 
-_reactDom2.default.render(_react2.default.createElement(_shop2.default, {
-  sectionName: sectionNameText,
-  goods: goodsArr
-}), document.getElementById("container"));
+_reactDom2.default.render(_react2.default.createElement(_Shop2.default, { sectionName: sectionNameText, goods: goodsArr }), document.getElementById("container"));
 
 /***/ }),
 /* 9 */
@@ -2594,7 +2591,7 @@ if (process.env.NODE_ENV === 'production') {
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(1),n=__webpack_require__(2),r=__webpack_require__(5);function u(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}if(!aa)throw Error(u(227));
+var aa=__webpack_require__(1),n=__webpack_require__(2),r=__webpack_require__(6);function u(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}if(!aa)throw Error(u(227));
 function ba(a,b,c,d,e,f,g,h,k){var l=Array.prototype.slice.call(arguments,3);try{b.apply(c,l)}catch(m){this.onError(m)}}var da=!1,ea=null,fa=!1,ha=null,ia={onError:function(a){da=!0;ea=a}};function ja(a,b,c,d,e,f,g,h,k){da=!1;ea=null;ba.apply(ia,arguments)}function ka(a,b,c,d,e,f,g,h,k){ja.apply(this,arguments);if(da){if(da){var l=ea;da=!1;ea=null}else throw Error(u(198));fa||(fa=!0,ha=l)}}var la=null,ma=null,na=null;
 function oa(a,b,c){var d=a.type||"unknown-event";a.currentTarget=na(c);ka(d,b,void 0,a);a.currentTarget=null}var pa=null,qa={};
 function ra(){if(pa)for(var a in qa){var b=qa[a],c=pa.indexOf(a);if(!(-1<c))throw Error(u(96,a));if(!sa[c]){if(!b.extractEvents)throw Error(u(97,a));sa[c]=b;c=b.eventTypes;for(var d in c){var e=void 0;var f=c[d],g=b,h=d;if(ta.hasOwnProperty(h))throw Error(u(99,h));ta[h]=f;var k=f.phasedRegistrationNames;if(k){for(e in k)k.hasOwnProperty(e)&&ua(k[e],g,h);e=!0}else f.registrationName?(ua(f.registrationName,g,h),e=!0):e=!1;if(!e)throw Error(u(98,d,a));}}}}
@@ -3794,7 +3791,7 @@ if (process.env.NODE_ENV !== "production") {
 
 var React = __webpack_require__(1);
 var _assign = __webpack_require__(2);
-var Scheduler = __webpack_require__(5);
+var Scheduler = __webpack_require__(6);
 var checkPropTypes = __webpack_require__(3);
 var tracing = __webpack_require__(16);
 
@@ -29202,7 +29199,7 @@ var _goodsList = __webpack_require__(21);
 
 var _goodsList2 = _interopRequireDefault(_goodsList);
 
-var _propTypes = __webpack_require__(6);
+var _propTypes = __webpack_require__(5);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -29228,11 +29225,12 @@ var Shop = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Shop.__proto__ || Object.getPrototypeOf(Shop)).call.apply(_ref, [this].concat(args))), _this), _this.getInitialState = function () {
-      return {
-        goods: _this.props.goods,
-        markedProductCode: null
-      };
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Shop.__proto__ || Object.getPrototypeOf(Shop)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      goods: _this.props.goods,
+      markedProductCode: null,
+      viewProduct: null,
+      editProduct: null,
+      disabledProduct: null
     }, _this.deleteCard = function (code) {
       if (confirm("Уверены, что хотите удалить?")) {
         var newGoods = [];
@@ -29245,9 +29243,43 @@ var Shop = function (_React$Component) {
           goods: newGoods
         });
       }
+    }, _this.addCard = function () {
+      var newGoods = _this.state.goods;
+      var maxVendorCode = 0;
+      _this.state.goods.forEach(function (e) {
+        if (e.vendorCode > maxVendorCode) {
+          maxVendorCode = e.vendorCode;
+        }
+      });
+      var newProduct = {
+        vendorCode: ++maxVendorCode,
+        name: "Наименование",
+        price: 0,
+        img: "https://lh3.googleusercontent.com/proxy/utahQcE5e2pfkiKbEzRwtINapgoWhjMLPahw0MiWTwja4Uq7UXR5nS36okujH3vg0T0FIOEVuHGWgaJ61Kxvnh1vHjjOGXg0sQ4",
+        number: 0
+      };
+      newGoods.push(newProduct);
+      _this.setState({
+        goods: newGoods
+      });
+    }, _this.makeСhanges = function (id, name, img, price, number) {
+      _this.state.goods.forEach(function (e) {
+        if (e.vendorCode === id) {
+          e.name = name, e.img = img, e.price = price, e.number = number;
+        }
+      });
     }, _this.mark = function (code) {
       _this.setState({
         markedProductCode: code
+      });
+    }, _this.view = function (code) {
+      _this.setState({
+        viewProduct: code
+      });
+    }, _this.edit = function (code, status) {
+      _this.setState({
+        editProduct: code,
+        disabledProduct: status
       });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
@@ -29258,7 +29290,7 @@ var Shop = function (_React$Component) {
       var _this2 = this;
 
       var goodsCardsArr = this.state.goods.map(function (el) {
-        _react2.default.createElement(_goodsList2.default, {
+        return _react2.default.createElement(_goodsList2.default, {
           key: el.vendorCode,
           code: el.vendorCode,
           name: el.name,
@@ -29267,23 +29299,74 @@ var Shop = function (_React$Component) {
           number: el.number,
           deleteCard: _this2.deleteCard,
           mark: _this2.mark,
-          marked: _this2.state.markedProductCode
+          marked: _this2.state.markedProductCode,
+          view: _this2.view,
+          edit: _this2.edit,
+          disabledProduct: _this2.state.disabledProduct
         });
       });
 
-      return _react2.default.createElement(
+      var goodsCard = this.state.goods.map(function (el) {
+        if (el.vendorCode === _this2.state.viewProduct) {
+          return _react2.default.createElement(_goodsList2.default, {
+            key: el.vendorCode,
+            code: el.vendorCode,
+            name: el.name,
+            img: el.img,
+            price: el.price,
+            number: el.number,
+            viewProduct: _this2.state.viewProduct,
+            editProduct: _this2.state.editProduct,
+            edit: _this2.edit,
+            disabledProduct: _this2.state.disabledProduct,
+            makeСhanges: _this2.makeСhanges
+          });
+        }
+      });
+
+      return this.state.viewProduct ? _react2.default.createElement(
         "div",
-        { className: "Name" },
+        { className: "Shop" },
         _react2.default.createElement(
           "h2",
           { className: "sectionName" },
-          this.props.sectionName
+          " ",
+          this.props.sectionName,
+          " "
         ),
         _react2.default.createElement(
           "div",
           { className: "GoodsCardsArr" },
-          "goodsCardsArr"
+          " ",
+          goodsCardsArr,
+          " "
+        ),
+        _react2.default.createElement("input", { type: "button", value: "add", id: "add", onClick: this.addCard }),
+        _react2.default.createElement(
+          "div",
+          { className: "GoodsCard" },
+          " ",
+          goodsCard,
+          " "
         )
+      ) : _react2.default.createElement(
+        "div",
+        { className: "Shop" },
+        _react2.default.createElement(
+          "h2",
+          { className: "sectionName" },
+          " ",
+          this.props.sectionName,
+          " "
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "GoodsCardsArr" },
+          " ",
+          goodsCardsArr,
+          " "
+        ),
+        _react2.default.createElement("input", { type: "button", value: "add", id: "add", onClick: this.addCard })
       );
     }
   }]);
@@ -29321,9 +29404,17 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(6);
+var _propTypes = __webpack_require__(5);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _viewGoodsCard = __webpack_require__(27);
+
+var _viewGoodsCard2 = _interopRequireDefault(_viewGoodsCard);
+
+var _editGoodsCard = __webpack_require__(29);
+
+var _editGoodsCard2 = _interopRequireDefault(_editGoodsCard);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29350,7 +29441,12 @@ var GoodsList = function (_React$Component) {
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = GoodsList.__proto__ || Object.getPrototypeOf(GoodsList)).call.apply(_ref, [this].concat(args))), _this), _this.answerClicked = function () {
       _this.props.deleteCard(_this.props.code);
     }, _this.answerMark = function () {
-      _this.props.mark(_this.props.code);
+      if (_this.props.disabledProduct === null) {
+        _this.props.mark(_this.props.code);
+        _this.props.view(_this.props.code);
+      }
+    }, _this.answerEdit = function () {
+      _this.props.edit(_this.props.code, "disabled");
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -29361,60 +29457,102 @@ var GoodsList = function (_React$Component) {
       if (this.props.marked === this.props.code) {
         classNames.push("mark");
       }
-      return _react2.default.createElement(
-        "ul",
-        {
-          key: this.props.vendorCode,
-          className: classNames.join(" "),
-          onClick: this.answerMark
-        },
-        _react2.default.createElement(
-          "li",
-          null,
-          _react2.default.createElement("input", {
-            type: "button",
-            className: "btn-close",
-            value: "x",
-            id: "delete",
-            onClick: this.answerClicked
-          })
-        ),
-        _react2.default.createElement(
-          "li",
-          { className: "Name" },
+
+      if (this.props.viewProduct != null && this.props.editProduct === null) {
+        return _react2.default.createElement(_viewGoodsCard2.default, {
+          vendorCode: this.props.vendorCode,
+          name: this.props.name,
+          img: this.props.img,
+          price: this.props.price,
+          number: this.props.number
+        });
+      }
+
+      if (this.props.viewProduct != null && this.props.editProduct != null) {
+        return _react2.default.createElement(_editGoodsCard2.default, {
+          id: this.props.code,
+          vendorCode: this.props.code,
+          name: this.props.name,
+          img: this.props.img,
+          price: this.props.price,
+          number: this.props.number,
+          disabledProduct: this.props.disabledProduct,
+          edit: this.props.edit,
+          makeСhanges: this.props.makeСhanges
+        });
+      } else {
+        return _react2.default.createElement(
+          "ul",
+          {
+            key: this.props.vendorCode,
+            className: classNames.join(" "),
+            onClick: this.answerMark
+          },
           _react2.default.createElement(
-            "h3",
+            "li",
             null,
+            _react2.default.createElement("input", {
+              type: "button",
+              className: "btn-close",
+              value: "x",
+              id: "delete",
+              disabled: this.props.disabledProduct,
+              onClick: this.answerClicked
+            })
+          ),
+          _react2.default.createElement(
+            "li",
+            null,
+            _react2.default.createElement("input", {
+              type: "button",
+              className: "edit far fa-edit",
+              value: "\uF044",
+              id: "edit",
+              disabled: this.props.disabledProduct,
+              onClick: this.answerEdit
+            })
+          ),
+          _react2.default.createElement(
+            "li",
+            { className: "name" },
+            _react2.default.createElement(
+              "h3",
+              null,
+              " ",
+              this.props.name,
+              " "
+            )
+          ),
+          _react2.default.createElement(
+            "li",
+            { className: "img" },
+            _react2.default.createElement("img", { src: this.props.img, alt: "img_pump" })
+          ),
+          _react2.default.createElement(
+            "li",
+            { className: "price" },
+            _react2.default.createElement(
+              "h4",
+              null,
+              " ",
+              "Цена: " + this.props.price + "BYN",
+              " "
+            )
+          ),
+          _react2.default.createElement(
+            "li",
+            { className: "number" },
+            "Кол-во на складе:" + this.props.number + "шт."
+          ),
+          _react2.default.createElement(
+            "button",
+            { className: "button" },
             " ",
-            this.props.name,
+            "Купить",
             " "
           )
-        ),
-        _react2.default.createElement(
-          "li",
-          { className: "Img" },
-          _react2.default.createElement("img", { src: "this.props.img", alt: "img_pump" })
-        ),
-        _react2.default.createElement(
-          "li",
-          { className: "Price" },
-          _react2.default.createElement(
-            "h4",
-            null,
-            "Цена: " + this.props.price + "BYN"
-          )
-        ),
-        _react2.default.createElement(
-          "li",
-          { className: "Number" },
-          "Кол-во на складе:" + this.props.number + "шт."
-        ),
-        _react2.default.createElement(
-          "button",
-          { className: "Button" },
-          "Купить"
-        )
-      );
+        );
+      }
     }
   }]);
 
@@ -29422,9 +29560,9 @@ var GoodsList = function (_React$Component) {
 }(_react2.default.Component);
 
 GoodsList.propTypes = {
-  name: _react2.default.PropTypes.string.isRequired,
-  price: _react2.default.PropTypes.number.isRequired,
-  number: _react2.default.PropTypes.number.isRequired
+  name: _propTypes2.default.string.isRequired,
+  price: _propTypes2.default.number.isRequired,
+  number: _propTypes2.default.number.isRequired
 };
 exports.default = GoodsList;
 
@@ -30317,6 +30455,293 @@ module.exports = function() {
 
 /***/ }),
 /* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+__webpack_require__(28);
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(5);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ViewGoodsCard = function (_React$Component) {
+  _inherits(ViewGoodsCard, _React$Component);
+
+  function ViewGoodsCard() {
+    _classCallCheck(this, ViewGoodsCard);
+
+    return _possibleConstructorReturn(this, (ViewGoodsCard.__proto__ || Object.getPrototypeOf(ViewGoodsCard)).apply(this, arguments));
+  }
+
+  _createClass(ViewGoodsCard, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "ul",
+        { key: this.props.vendorCode, className: "CardView" },
+        _react2.default.createElement(
+          "li",
+          { className: "Name" },
+          _react2.default.createElement(
+            "h3",
+            null,
+            " ",
+            this.props.name,
+            " "
+          )
+        ),
+        _react2.default.createElement(
+          "li",
+          { className: "Img" },
+          _react2.default.createElement("img", { src: this.props.img, alt: "img_pump" })
+        ),
+        _react2.default.createElement(
+          "li",
+          { className: "Price" },
+          _react2.default.createElement(
+            "h4",
+            null,
+            " ",
+            "Цена: " + this.props.price + "BYN",
+            " "
+          )
+        ),
+        _react2.default.createElement(
+          "li",
+          { className: "Number" },
+          "Кол-во на складе:" + this.props.number + "шт."
+        )
+      );
+    }
+  }]);
+
+  return ViewGoodsCard;
+}(_react2.default.Component);
+
+ViewGoodsCard.defaultProps = {
+  question: "Просмотр товара недоступен!"
+};
+exports.default = ViewGoodsCard;
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+__webpack_require__(30);
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var EditGoodsCard = function (_React$Component) {
+  _inherits(EditGoodsCard, _React$Component);
+
+  function EditGoodsCard() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, EditGoodsCard);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = EditGoodsCard.__proto__ || Object.getPrototypeOf(EditGoodsCard)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      id: _this.props.id,
+      name: _this.props.name,
+      img: _this.props.img,
+      price: _this.props.price,
+      number: _this.props.number
+    }, _this.validate = function () {
+      var access = true;
+      for (var key in _this.state) {
+        if (key === "id") {} else {
+          var input = document.getElementById("" + key);
+          if (!_this.state[key]) {
+            access = false;
+            input.classList.remove("invisible");
+          } else if (!input.classList.contains("invisible")) {
+            input.classList.add("invisible");
+          }
+        }
+      }
+      if (access) {
+        document.getElementById("buttonSave").removeAttribute("disabled");
+      } else {
+        document.getElementById("buttonSave").setAttribute("disabled", "true");
+      }
+      return access;
+    }, _this.answerName = function (e) {
+      _this.setState({
+        name: e.target.value
+      }, _this.validate);
+    }, _this.answerImg = function (e) {
+      _this.setState({
+        img: e.target.value
+      }, _this.validate);
+    }, _this.answerPrice = function (e) {
+      _this.setState({
+        price: Number(e.target.value)
+      }, _this.validate);
+    }, _this.answerNumber = function (e) {
+      _this.setState({
+        number: Number(e.target.value)
+      }, _this.validate);
+    }, _this.answerClosed = function () {
+      if (!_this.validate()) {} else {
+        _this.props.makeСhanges(_this.state.id, _this.state.name, _this.state.img, _this.state.price, _this.state.number);
+        _this.props.edit(null, null);
+      }
+    }, _this.answerСanceling = function () {
+      _this.props.makeСhanges(_this.props.id, _this.props.name, _this.props.img, _this.props.price, _this.props.number);
+      _this.props.edit(null, null);
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(EditGoodsCard, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "ul",
+        { key: this.props.vendorCode, className: "CardEdit" },
+        _react2.default.createElement(
+          "li",
+          { className: "nameEdit" },
+          _react2.default.createElement("input", {
+            type: "text",
+            defaultValue: this.props.name,
+            onChange: this.answerName
+          })
+        ),
+        _react2.default.createElement(
+          "span",
+          { id: "name", className: "messageErr invisible" },
+          "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435"
+        ),
+        _react2.default.createElement(
+          "li",
+          { className: "imgEdit" },
+          _react2.default.createElement("input", {
+            type: "text",
+            defaultValue: this.props.img,
+            onChange: this.answerImg
+          })
+        ),
+        _react2.default.createElement(
+          "span",
+          { id: "img", className: "messageErr invisible" },
+          "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 URL \u0438\u0437\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u044F"
+        ),
+        _react2.default.createElement(
+          "li",
+          { className: "priceEdit" },
+          _react2.default.createElement("input", {
+            type: "text",
+            defaultValue: this.props.price,
+            onChange: this.answerPrice
+          })
+        ),
+        _react2.default.createElement(
+          "span",
+          { id: "price", className: "messageErr invisible" },
+          "\u0423\u043A\u0430\u0436\u0438\u0442\u0435 \u0446\u0435\u043D\u0443"
+        ),
+        _react2.default.createElement(
+          "li",
+          { className: "numberEdit" },
+          _react2.default.createElement("input", {
+            type: "text",
+            defaultValue: this.props.number,
+            onChange: this.answerNumber
+          })
+        ),
+        _react2.default.createElement(
+          "span",
+          { id: "number", className: "messageErr invisible" },
+          "\u0423\u043A\u0430\u0436\u0438\u0442\u0435 \u043A-\u0432\u043E \u043D\u0430 \u0441\u043A\u043B\u0430\u0434\u0435"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          _react2.default.createElement(
+            "button",
+            {
+              id: "buttonSave",
+              className: "buttonEdit",
+              onClick: this.answerClosed
+            },
+            "Сохранить"
+          ),
+          _react2.default.createElement(
+            "button",
+            { className: "buttonEdit", onClick: this.answerСanceling },
+            "Закрыть"
+          )
+        )
+      );
+    }
+  }]);
+
+  return EditGoodsCard;
+}(_react2.default.Component);
+
+EditGoodsCard.defaultProps = {
+  question: "Ой, что-то пошло не так!"
+};
+exports.default = EditGoodsCard;
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 31 */
 /***/ (function(module, exports) {
 
 module.exports = [{"vendorCode":1,"name":"20C4.5X006","price":165,"img":"https://dimon713.ru/img/gear_pump_hydra_pack/Bezimyannij-150x150.png","number":2},{"vendorCode":2,"name":"20C6.3X006","price":175,"img":"https://dimon713.ru//img/pump_motor/828917111_w640_h640_a2fo_br6x_main__to_rgb.big-150x150.jpg","number":5},{"vendorCode":3,"name":"20C8.2X006","price":185,"img":"https://dimon713.ru//img/pump_motor/1287738212_series-vqh-150x150.jpg","number":7},{"vendorCode":4,"name":"20C10X006","price":200,"img":"https://dimon713.ru//img/pump_motor/77-150x150.jpeg","number":4}]

@@ -1,5 +1,5 @@
 "use strict";
-import "./viewGoodsCard.css";
+import "./ViewGoodsCard.css";
 import React from "react";
 import PropTypes from "prop-types";
 
@@ -14,13 +14,13 @@ class ViewGoodsCard extends React.Component {
         <li className="Name">
           <h3> {this.props.name} </h3>
         </li>
-        <li className="Img">
+        <li className="img">
           <img src={this.props.img} alt="img_pump" />
         </li>
-        <li className="Price">
+        <li className="price">
           <h4> {"Цена: " + this.props.price + "BYN"} </h4>
         </li>
-        <li className="Number">
+        <li className="number">
           {"Кол-во на складе:" + this.props.number + "шт."}
         </li>
       </ul>
