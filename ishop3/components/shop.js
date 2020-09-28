@@ -44,14 +44,9 @@ class Shop extends React.Component {
     });
   };
 
-  addCard = (id, name, img, price, number) => {
+  addCard = (vendorCode, name, img, price, number) => {
     let newGoods = this.state.goods;
-    let newCard = {};
-    newCard.vendorCode = id;
-    newCard.name = name;
-    newCard.price = price;
-    newCard.img = img;
-    newCard.number = number;
+    let newCard = { vendorCode, name, img, price, number };
     newGoods.push(newCard);
     this.setState({
       goods: newGoods,
