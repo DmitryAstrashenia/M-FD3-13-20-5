@@ -4,7 +4,7 @@ import "./RainbowFrame.css";
 
 const RainbowFrame = (props) => {
   let border;
-  props.colors.map((e, item) => {
+  props.colors.forEach((e, item) => {
     if (!item) {
       border = (
         <div

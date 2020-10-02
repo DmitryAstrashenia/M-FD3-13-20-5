@@ -8,6 +8,7 @@ const BR2JSX = (props) => {
     arr.push(e);
     arr.push(<br key={item} />);
   });
+  arr.pop();
 
   return <div className="br2jsx">{arr}</div>;
 };
