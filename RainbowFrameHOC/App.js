@@ -13,14 +13,14 @@ ReactDOM.render(
     <DoubleButton
       caption1="однажды"
       caption2="пору"
-      cbPressed={(e) => alert(e.target.value)}
+      cbPressed={(num) => alert(num)}
     >
       в студёную зимнюю
     </DoubleButton>
     <FramedDoubleButton
       caption1="я из лесу"
       caption2="мороз"
-      cbPressed={(e) => alert(e.target.value)}
+      cbPressed={(num) => alert(num)}
     >
       вышел, был сильный
     </FramedDoubleButton>
