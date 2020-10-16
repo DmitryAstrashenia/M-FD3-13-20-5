@@ -34,7 +34,7 @@ class Client extends React.PureComponent {
   };
 
   render() {
-    console.log("renderClient");
+    console.log("renderClient", this.props.client.id);
 
     let viewClient;
     if (this.state.edit) {

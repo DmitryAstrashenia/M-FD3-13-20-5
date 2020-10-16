@@ -4,7 +4,6 @@ import "./MobileClients";
 import { myEvents } from "./events";
 import Client from "./Client";
 import PropTypes from "prop-types";
-import deepEqual from "deep-equal";
 
 class MobileClients extends React.Component {
   static propTypes = {
@@ -26,56 +25,42 @@ class MobileClients extends React.Component {
     edit: null,
   };
 
-  allClients = this.props.clients;
-
   answerDeleteClicked = (id) => {
-    let newClients = this.allClients.filter((e) => e.id != id);
+    let newClients = this.state.clients.filter((e) => e.id != id);
     this.setState({
       clients: newClients,
       edit: null,
     });
-    this.allClients = newClients;
-    if (this.state.statusActiveClicked) {
-      this.answerActiveClicked();
-    }
-    if (this.state.statusBlockedClicked) {
-      this.answerBlockedClicked();
-    }
   };
 
   answerAllClicked = () => {
-    let isEqual = deepEqual(this.allClients, this.state.clients);
-    if (!isEqual) {
+    if (
+      this.state.statusActiveClicked != null ||
+      this.state.statusBlockedClicked != null
+    ) {
       this.setState({
-        clients: this.allClients,
-        statusActiveClicked: 0,
-        statusBlockedClicked: 0,
+        statusActiveClicked: null,
+        statusBlockedClicked: null,
         edit: null,
       });
     }
   };
 
   answerActiveClicked = () => {
-    let newClients = this.allClients.filter((client) => client.balance >= 0);
-    let isEqual = deepEqual(newClients, this.state.clients);
-    if (!isEqual) {
+    if (this.state.statusActiveClicked != 1) {
       this.setState({
-        clients: newClients,
         statusActiveClicked: 1,
-        statusBlockedClicked: 0,
+        statusBlockedClicked: null,
         edit: null,
       });
     }
   };
 
   answerBlockedClicked = () => {
-    let newClients = this.allClients.filter((client) => client.balance <= 0);
-    let isEqual = deepEqual(newClients, this.state.clients);
-    if (!isEqual) {
+    if (this.state.statusBlockedClicked != 1) {
       this.setState({
-        clients: newClients,
+        statusActiveClicked: null,
         statusBlockedClicked: 1,
-        statusActiveClicked: 0,
         edit: null,
       });
     }
@@ -83,12 +68,12 @@ class MobileClients extends React.Component {
 
   answerAddClicked = () => {
     let maxId = 0;
-    this.allClients.forEach((e) => {
+    this.state.clients.forEach((e) => {
       if (e.id > maxId) {
         maxId = e.id;
       }
     });
-    let newClients = [...this.allClients];
+    let newClients = [...this.state.clients];
     let newClient = {
       id: 5 + maxId,
       fam: null,
@@ -102,17 +87,10 @@ class MobileClients extends React.Component {
       clients: newClients,
       edit: 1,
     });
-    this.allClients = newClients;
-    if (this.state.statusActiveClicked) {
-      this.answerActiveClicked();
-    }
-    if (this.state.statusBlockedClicked) {
-      this.answerBlockedClicked();
-    }
   };
 
   answerSaveClicked = (id, fam, im, otch, balance) => {
-    let newClients = [...this.allClients];
+    let newClients = [...this.state.clients];
     newClients.forEach((client, i) => {
       if (client.id == id) {
         let newClient = { ...client };
@@ -126,13 +104,6 @@ class MobileClients extends React.Component {
     this.setState({
       clients: newClients,
     });
-    this.allClients = newClients;
-    if (this.state.statusActiveClicked) {
-      this.answerActiveClicked();
-    }
-    if (this.state.statusBlockedClicked) {
-      this.answerBlockedClicked();
-    }
   };
 
   componentDidMount = () => {
@@ -147,10 +118,23 @@ class MobileClients extends React.Component {
 
   render() {
     console.log("renderMobileClients");
-
-    let clientsCode = this.state.clients.map((client) => (
-      <Client key={client.id} client={client} edit={this.state.edit} />
-    ));
+    let newClients = [];
+    let clientsCode = [];
+    if (this.state.statusActiveClicked) {
+      newClients = this.state.clients.filter((client) => client.balance >= 0);
+      clientsCode = newClients.map((client) => (
+        <Client key={client.id} client={client} edit={this.state.edit} />
+      ));
+    } else if (this.state.statusBlockedClicked) {
+      newClients = this.state.clients.filter((client) => client.balance < 0);
+      clientsCode = newClients.map((client) => (
+        <Client key={client.id} client={client} edit={this.state.edit} />
+      ));
+    } else {
+      clientsCode = this.state.clients.map((client) => (
+        <Client key={client.id} client={client} edit={this.state.edit} />
+      ));
+    }
     return (
       <div className={"MobileClients"}>
         <input type="button" value="Все" onClick={this.answerAllClicked} />
