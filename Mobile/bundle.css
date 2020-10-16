@@ -1,0 +1,46 @@
+.MobileCompany{
+    width: 800px;
+}
+
+.MobileCompany .SelectCompany{
+    width: 170px;
+    font-size: large;
+    margin-bottom: 20px;
+}
+
+.MobileCompany .SelectCompany input{
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.MobileClients{
+    width: 800px;
+}
+
+.MobileClients .edit{
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    font-style: italic;
+}
+
+.MobileClients table td{
+    width: 100px;
+}
+
+.MobileClients table,th,td{
+    border: solid 1px black;
+    text-align: center;
+}
+
+.MobileClients table{
+    width: 100%;
+}
+
+.MobileClients .backgroundColorGreen{
+    background-color: green;
+}
+
+.MobileClients .backgroundColorRed{
+    background-color: red;
+}
+/*# sourceMappingURL=bundle.css.map*/

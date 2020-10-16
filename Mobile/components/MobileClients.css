@@ -1,0 +1,31 @@
+.MobileClients{
+    width: 800px;
+}
+
+.MobileClients .edit{
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    font-style: italic;
+}
+
+.MobileClients table td{
+    width: 100px;
+}
+
+.MobileClients table,th,td{
+    border: solid 1px black;
+    text-align: center;
+}
+
+.MobileClients table{
+    width: 100%;
+}
+
+.MobileClients .backgroundColorGreen{
+    background-color: green;
+}
+
+.MobileClients .backgroundColorRed{
+    background-color: red;
+}

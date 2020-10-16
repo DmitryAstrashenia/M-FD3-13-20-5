@@ -6,6 +6,7 @@ const DoubleButton = (props) => {
   const clickButton1 = () => {
     props.cbPressed(props.caption1);
   };
+
   const clickButton2 = () => {
     props.cbPressed(props.caption2);
   };

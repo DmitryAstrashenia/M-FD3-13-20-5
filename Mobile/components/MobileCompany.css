@@ -1,0 +1,14 @@
+.MobileCompany{
+    width: 800px;
+}
+
+.MobileCompany .SelectCompany{
+    width: 170px;
+    font-size: large;
+    margin-bottom: 20px;
+}
+
+.MobileCompany .SelectCompany input{
+    padding: 5px;
+    margin-bottom: 10px;
+}
