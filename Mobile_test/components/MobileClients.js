@@ -6,7 +6,7 @@ import Client from "./Client";
 import PropTypes from "prop-types";
 import { editArr } from "./module/editArr";
 
-class MobileClients extends React.Component {
+class MobileClients extends React.PureComponent {
   static propTypes = {
     clients: PropTypes.arrayOf(
       PropTypes.shape({
