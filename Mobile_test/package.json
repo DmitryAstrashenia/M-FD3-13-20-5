@@ -1,0 +1,41 @@
+{
+  "name": "ishop3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": ".\\node_modules\\.bin\\webpack",
+    "livebuild": ".\\node_modules\\.bin\\webpack-dev-server --progress --colors",
+    "start": ".\\node_modules\\.bin\\lite-server",
+    "test": "jest"
+  },
+  "author": "AstrasheniaDmitry",
+  "license": "ISC",
+  "devDependencies": {
+    "@testing-library/react": "^11.1.0",
+    "babel-core": "^6.26.0",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "events": "^3.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "jest": "^23.6.0",
+    "prop-types": "^15.6.0",
+    "react-test-renderer": "^16.7.0",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.11.3"
+  },
+  "dependencies": {
+    "react": "^16.3.0",
+    "react-dom": "^16.0.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less|scss)$": "<rootDir>/__mocks__/styleMock.js"
+    }
+  }
+}

@@ -1,9 +1,10 @@
 "use strict";
 import React from "react";
-import "./MobileClients";
+import "./MobileClients.css";
 import { myEvents } from "./events";
 import Client from "./Client";
 import PropTypes from "prop-types";
+import { editArr } from "./module/editArr";
 
 class MobileClients extends React.Component {
   static propTypes = {
@@ -20,53 +21,53 @@ class MobileClients extends React.Component {
 
   state = {
     clients: this.props.clients,
-    statusActiveClicked: null,
-    statusBlockedClicked: null,
+    statusActive: null,
+    statusBlocked: null,
     edit: null,
   };
 
-  answerDeleteClicked = (id) => {
-    let newClients = this.state.clients.filter((e) => e.id != id);
+  filterArr = (id, arr) => {
+    let newClients = arr.filter((e) => e.id != id);
+    return newClients;
+  };
+
+  deleteUser = (id) => {
     this.setState({
-      clients: newClients,
-      edit: null,
+      clients: this.filterArr(id, this.state.clients),
     });
   };
 
-  answerAllClicked = () => {
-    if (
-      !this.state.statusActiveClicked != null ||
-      !this.state.statusBlockedClicked != null
-    ) {
+  btnViewAllUser = () => {
+    if (!this.state.statusActive != null || !this.state.statusBlocked != null) {
       this.setState({
-        statusActiveClicked: null,
-        statusBlockedClicked: null,
+        statusActive: null,
+        statusBlocked: null,
         edit: null,
       });
     }
   };
 
-  answerActiveClicked = () => {
-    if (this.state.statusActiveClicked != 1) {
+  btnViewActiveUser = () => {
+    if (this.state.statusActive != 1) {
       this.setState({
-        statusActiveClicked: 1,
-        statusBlockedClicked: null,
+        statusActive: 1,
+        statusBlocked: null,
         edit: null,
       });
     }
   };
 
-  answerBlockedClicked = () => {
-    if (this.state.statusBlockedClicked != 1) {
+  btnViewBlockedUser = () => {
+    if (this.state.statusBlocked != 1) {
       this.setState({
-        statusActiveClicked: null,
-        statusBlockedClicked: 1,
+        statusActive: null,
+        statusBlocked: 1,
         edit: null,
       });
     }
   };
 
-  answerAddClicked = () => {
+  btnAddUser = () => {
     let maxId = 0;
     this.state.clients.forEach((e) => {
       if (e.id > maxId) {
@@ -76,56 +77,50 @@ class MobileClients extends React.Component {
     let newClients = [...this.state.clients];
     let newClient = {
       id: 5 + maxId,
-      fam: null,
-      im: null,
-      otch: null,
-      balance: this.state.statusBlockedClicked ? -1 : 1,
+      fam: String(""),
+      im: String(""),
+      otch: String(""),
+      balance: this.state.statusBlocked ? -1 : 1,
     };
     newClients.push(newClient);
 
     this.setState({
       clients: newClients,
-      edit: 1,
+      edit: true,
     });
   };
 
-  answerSaveClicked = (id, fam, im, otch, balance) => {
+  saveClicked = (newClient) => {
     let newClients = [...this.state.clients];
-    newClients.forEach((client, i) => {
-      if (client.id == id) {
-        let newClient = { ...client };
-        newClient.fam = fam;
-        newClient.im = im;
-        newClient.otch = otch;
-        newClient.balance = Number(balance);
-        newClients[i] = newClient;
-      }
-    });
     this.setState({
-      clients: newClients,
+      clients: editArr(newClients, newClient),
+      edit: null,
     });
   };
 
   componentDidMount = () => {
-    myEvents.addListener("answerDeleteClicked", this.answerDeleteClicked);
-    myEvents.addListener("answerSaveClicked", this.answerSaveClicked);
+    myEvents.addListener("answerDeleteClicked", this.deleteUser);
+    myEvents.addListener("answerSaveClickedFromEditClient", this.saveClicked);
   };
 
   componentWillUnmount = () => {
-    myEvents.removeListener("answerDeleteClicked", this.answerDeleteClicked);
-    myEvents.removeListener("answerSaveClicked", this.answerSaveClicked);
+    myEvents.removeListener("answerDeleteClicked", this.deleteUser);
+    myEvents.removeListener(
+      "answerSaveClickedFromEditClient",
+      this.saveClicked
+    );
   };
 
   render() {
     console.log("renderMobileClients");
     let newClients = [];
     let clientsCode = [];
-    if (this.state.statusActiveClicked) {
+    if (this.state.statusActive) {
       newClients = this.state.clients.filter((client) => client.balance >= 0);
       clientsCode = newClients.map((client) => (
         <Client key={client.id} client={client} edit={this.state.edit} />
       ));
-    } else if (this.state.statusBlockedClicked) {
+    } else if (this.state.statusBlocked) {
       newClients = this.state.clients.filter((client) => client.balance < 0);
       clientsCode = newClients.map((client) => (
         <Client key={client.id} client={client} edit={this.state.edit} />
@@ -136,17 +131,24 @@ class MobileClients extends React.Component {
       ));
     }
     return (
-      <div className={"MobileClients"}>
-        <input type="button" value="Все" onClick={this.answerAllClicked} />
+      <div className={"mobileClients"}>
         <input
           type="button"
-          value="Активные"
-          onClick={this.answerActiveClicked}
+          id="btnViewAllUser"
+          value="Все"
+          onClick={this.btnViewAllUser}
         />
         <input
           type="button"
+          id="btnViewActiveUser"
+          value="Активные"
+          onClick={this.btnViewActiveUser}
+        />
+        <input
+          type="button"
+          id="btnViewBlockedUser"
           value="Заблокированные"
-          onClick={this.answerBlockedClicked}
+          onClick={this.btnViewBlockedUser}
         />
         <hr />
         <hr />
@@ -167,8 +169,9 @@ class MobileClients extends React.Component {
         <hr />
         <input
           type="button"
+          id={"answerAddClicked"}
           value="Добавить клиента"
-          onClick={this.answerAddClicked}
+          onClick={this.btnAddUser}
         />
       </div>
     );

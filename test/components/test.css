@@ -1,0 +1,43 @@
+.CardEdit {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    list-style: none;
+    text-align: center;
+    padding: 18px;
+    min-width: 175px;
+    margin-right: 40px;
+    display: inline;
+    position: relative;
+}
+
+.CardEdit .buttonEdit {
+    width: 88px;
+    margin-top: 30px;
+}
+
+.CardEdit .imgEdit {
+    padding-top: 40px;
+}
+
+.CardEdit .priceEdit {
+    padding-top: 40px;
+}
+
+.CardEdit .numberEdit {
+    padding-top: 40px;
+}
+
+.CardEdit .messageErr {
+    color: red;
+    font-size: 12px;
+    position: absolute;
+    left: 25%;
+}
+
+.CardEdit .invisible {
+    display: none;
+}
+
+.CardEdit li {
+    position: relative;
+}
