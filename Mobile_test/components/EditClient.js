@@ -27,11 +27,11 @@ class EditClient extends React.PureComponent {
     this.newTextRefBalance = ref;
   };
 
-  answerDeleteClicked = () => {
+  btnDeleteUser = () => {
     myEvents.emit("answerDeleteClicked", this.props.client.id);
   };
 
-  answerSaveClicked = () => {
+  btnSaveUser = () => {
     if (this.newTextRefFam) {
       let newClient = {};
       newClient.id = this.props.client.id;
@@ -95,15 +95,11 @@ class EditClient extends React.PureComponent {
             type="button"
             id={this.props.client.id + `_save`}
             value="Сохранить"
-            onClick={this.answerSaveClicked}
+            onClick={this.btnSaveUser}
           />
         </td>
         <td>
-          <input
-            type="button"
-            value="Удалить"
-            onClick={this.answerDeleteClicked}
-          />
+          <input type="button" value="Удалить" onClick={this.btnDeleteUser} />
         </td>
       </tr>
     );
