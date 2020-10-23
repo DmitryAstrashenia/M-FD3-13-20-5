@@ -1,26 +1,24 @@
 class Scale {
-  productList: Object[];
+  productList: Product[];
 
   constructor() {
     this.productList = [];
   }
 
-  add(product: Object) {
+  add(product: Product) {
     this.productList.push(product);
   }
 
   getSumScale(): number {
     let sum: number = 0;
-    this.productList.forEach(
-      (element: Product) => (sum = sum + element.weight)
-    );
+    this.productList.forEach((element: Product) => (sum += element.getScale()));
     return sum;
   }
 
   getNameList(): string[] {
     let productListName: string[] = [];
     this.productList.forEach((element: Product) =>
-      productListName.push(element.name)
+      productListName.push(element.getName())
     );
     return productListName;
   }
@@ -43,10 +41,14 @@ class Product {
 }
 
 let scale: Scale = new Scale();
-let apple: Object = new Product(100, "apple");
-let orange: Object = new Product(125, "orange");
-let tomato: Object = new Product(150, "tomato");
+
+class Apple extends Product {}
+class Tomato extends Product {}
+
+let apple: Apple = new Apple(125, "Яблоки");
+let tomato: Tomato = new Tomato(100, "Помидоры");
+let bigTomato: Tomato = new Tomato(175, "Помидор большой");
 
 scale.add(apple);
-scale.add(orange);
 scale.add(tomato);
+scale.add(bigTomato);
