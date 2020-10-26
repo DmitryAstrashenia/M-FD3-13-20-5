@@ -4,7 +4,7 @@ interface IStorageEngine {
   getCount(): number;
 }
 
-class Scale<StorageEngine extends IStorageEngine> {
+class Scales<StorageEngine extends IStorageEngine> {
   private storage: StorageEngine;
 
   constructor(_storage: StorageEngine) {
@@ -55,17 +55,17 @@ class ScalesStorageEngineArray implements IStorageEngine {
 class ScalesStorageEngineLocalStorage implements IStorageEngine {
   addItem(item: Product): void {
     if (localStorage.length == 0) {
-      localStorage.setItem("Scale", JSON.stringify([]));
+      localStorage.setItem("Scales", JSON.stringify([]));
     }
     let products: Array<Product> = JSON.parse(localStorage.Scales);
     products.push(item);
-    localStorage.Scale = JSON.stringify(products);
+    localStorage.Scales = JSON.stringify(products);
   }
 
   getItem(index: number): Product {
     const products: Array<Product> = JSON.parse(localStorage.Scales);
     const item: any = products[index];
-    
+
     return new Product(item.weight, item.name);
   }
 
@@ -100,12 +100,12 @@ const bigTomato: Product = new Product(175, "Помидор большой");
 const storage_Array = new ScalesStorageEngineArray();
 const strage_localStorage = new ScalesStorageEngineLocalStorage();
 
-const scales_Array = new Scale<ScalesStorageEngineArray>(storage_Array);
+const scales_Array = new Scales<ScalesStorageEngineArray>(storage_Array);
 scales_Array.addItem(apple);
 scales_Array.addItem(tomato);
 scales_Array.addItem(bigTomato);
 
-const scales_localStorage = new Scale<ScalesStorageEngineLocalStorage>(
+const scales_localStorage = new Scales<ScalesStorageEngineLocalStorage>(
   strage_localStorage
 );
 scales_localStorage.addItem(apple);
