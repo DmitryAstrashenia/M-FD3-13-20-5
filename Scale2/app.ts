@@ -1,33 +1,42 @@
 class Scale {
-  productList: Product[];
+  productList: IScalable[];
 
   constructor() {
     this.productList = [];
   }
 
-  add(product: Product) {
+  add(product: IScalable) {
     this.productList.push(product);
   }
 
   getSumScale(): number {
     let sum: number = 0;
-    this.productList.forEach((element: Product) => (sum += element.getScale()));
+    this.productList.forEach(
+      (element: IScalable) => (sum += element.getScale())
+    );
     return sum;
   }
 
   getNameList(): string[] {
     let productListName: string[] = [];
-    this.productList.forEach((element: Product) =>
+    this.productList.forEach((element: IScalable) =>
       productListName.push(element.getName())
     );
     return productListName;
   }
 }
 
-class Product {
+interface IScalable {
+  getScale(): number;
+  getName(): string;
+}
+
+let scale: Scale = new Scale();
+
+class Apple implements IScalable {
   weight: number;
   name: string;
-  
+
   constructor(_weight: number, _name: string) {
     this.weight = _weight;
     this.name = _name;
@@ -41,10 +50,22 @@ class Product {
   }
 }
 
-let scale: Scale = new Scale();
+class Tomato implements IScalable {
+  weight: number;
+  name: string;
 
-class Apple extends Product {}
-class Tomato extends Product {}
+  constructor(_weight: number, _name: string) {
+    this.weight = _weight;
+    this.name = _name;
+  }
+
+  getScale() {
+    return this.weight;
+  }
+  getName() {
+    return this.name;
+  }
+}
 
 let apple: Apple = new Apple(125, "Яблоки");
 let tomato: Tomato = new Tomato(100, "Помидоры");
