@@ -1,0 +1,227 @@
+.nav-hor {
+    max-width: 1200px;
+    width: 100%;
+    min-width: 300px;
+    margin: 0 auto;
+    background-color: #565f66;
+    position: relative;
+}
+
+.nav-hor.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    margin: auto;
+    opacity: 0.97;
+}
+
+.nav-hor_v2.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    margin: auto;
+    opacity: 0.97;
+}
+
+.nav-hor_v2.fixed:hover {
+    opacity: 1;
+}
+
+.nav-hor.fixed:hover {
+    opacity: 1;
+}
+
+.nav-hor ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-hor>ul>li:not(:first-child) {
+    border-left: 1px solid #3b3e40;
+}
+
+.nav-hor>ul>li {
+    width: 16.667%;
+}
+
+.nav-hor>ul li a {
+    display: block;
+    text-decoration: none;
+    font-family: Roboto, sans-serif;
+    font-weight: 750;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #565f66;
+    border-bottom: 1px solid #3b3e40;
+    font-size: 15px;
+}
+
+.nav-hor .active {
+    background-color: #FF6600;
+}
+
+.nav-hor>ul a:hover {
+    background-color: #3fbbec;
+    box-shadow: 1px 5px 10px -5px black;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.activ {
+    color: white;
+}
+
+.nav-hor .icon {
+    display: none;
+    width: 15%;
+}
+
+.nav-hor .drop_down {
+    position: relative;
+}
+
+.nav-hor .drop_down ul {
+    position: absolute;
+    display: none;
+    width: 100%;
+}
+
+.nav-hor .drop_down ul li>ul {
+    left: 100%;
+    display: none;
+}
+
+.nav-hor .drop_down ul>li:hover ul {
+    display: block;
+    z-index: 1000;
+}
+
+.nav-hor li:hover ul {
+    display: block;
+    width: 100%;
+    background: lightgrey;
+    font-family: Roboto, sans-serif;
+}
+
+.nav-hor .drop_down li>ul li a {
+    text-transform: none;
+    font-weight: normal;
+    padding: 10px;
+}
+
+.nav-hor .drop_down span::after {
+    font-family: "Font Awesome 5 Brands", "Font Awesome 5 Free";
+    content: "\f078";
+    margin-left: 5px;
+}
+
+.nav-hor .drop_down .menu li a {
+    width: 100%;
+    text-transform: none;
+    font-weight: normal;
+    padding: 7px 0;
+}
+
+.nav-hor .drop_down .menu li ul {
+    left: 100%;
+    margin-top: -20%;
+    width: 204%;
+}
+
+#pieses_goods {
+    position: absolute;
+    font-size: small;
+    margin-left: 5px;
+    margin-top: -8px;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    border-radius: 8px;
+    text-align: center;
+    background-color: red;
+    box-shadow: inset 0 -5px 15px rgba(255, 255, 255, 0.4), inset -2px -1px 40px rgba(0, 0, 0, 0.4), 0 0 1px #000;
+}
+
+@media (max-width: 1110px) {
+    .nav-hor .drop_down a {
+        padding: 6px 0;
+    }
+}
+
+@media (max-width: 830px) {
+    .nav-hor {
+        font-size: 14px;
+    }
+    .nav-hor .drop_down .menu li a {
+        width: 204%;
+        text-transform: none;
+        font-weight: normal;
+    }
+    .nav-hor .drop_down .menu li ul {
+        left: 200%;
+        margin-top: -30%;
+    }
+}
+
+@media (max-width: 740px) {
+    .nav-hor {
+        display: flex;
+        justify-content: space-between;
+    }
+    .nav-hor ul {
+        padding-left: 10px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .nav-hor li:not(:first-child) {
+        display: none;
+    }
+    .nav-hor>ul>li {
+        width: auto;
+    }
+    .nav-hor .icon {
+        display: block;
+        width: 15%;
+        padding: 15px 0;
+        text-align: center;
+        color: white;
+    }
+}
+
+@media (max-width: 740px) {
+    .nav-hor.open {
+        position: relative;
+    }
+    .nav-hor.open a.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+        text-align: center;
+        background-color: #ddd;
+        color: white;
+    }
+    .nav-hor.open {
+        justify-content: center;
+    }
+    .nav-hor.open ul {
+        width: 100%;
+        padding-left: 0;
+    }
+    .nav-hor.open ul li {
+        display: block;
+        width: 100%;
+    }
+    .nav-hor.open .drop_down {
+        display: none;
+    }
+}

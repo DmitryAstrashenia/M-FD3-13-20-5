@@ -1,0 +1,10 @@
+.Content {
+    max-width: 1200px;
+    width: 100%;
+    min-width: 300px;
+    background-color: white;
+    margin: 0 auto;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+}
+
