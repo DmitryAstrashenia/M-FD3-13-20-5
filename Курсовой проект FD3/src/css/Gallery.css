@@ -1,0 +1,19 @@
+.Gallery{
+    font-weight: 300;
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+}
+
+.Gallery .fancybox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px 40px 80px;
+}
+
+.Gallery .photo img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}

@@ -12,12 +12,14 @@ class Header extends React.Component {
   render() {
     const settings = {
       dots: true,
-      autoplay: true,
-      infinite: true,
       slidesToShow: 1,
       slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      infinite: true,
+      fade: true,
     };
-
+    console.log("Header")
     return (
       <header>
         <div className="header_slider">
@@ -26,7 +28,7 @@ class Header extends React.Component {
               <div>
                 <img
                   src={
-                    "../src/img/header_slider/hydraulic-accumulators-slide_1200_300_80.jpg"
+                    "/../src/img/header_slider/hydraulic-accumulators-slide_1200_300_80.jpg"
                   }
                   alt="1"
                 />
@@ -34,7 +36,7 @@ class Header extends React.Component {
               <div>
                 <img
                   src={
-                    "../src/img/header_slider/hydraulic-hose-slide_1200_300_80.jpg"
+                    "/../src/img/header_slider/hydraulic-hose-slide_1200_300_80.jpg"
                   }
                   alt="2"
                 />
@@ -42,7 +44,7 @@ class Header extends React.Component {
               <div>
                 <img
                   src={
-                    "../src/img/header_slider/hydraulic-power-pack-slide_1200_300_80.jpg"
+                    "/../src/img/header_slider/hydraulic-power-pack-slide_1200_300_80.jpg"
                   }
                   alt="3"
                 />
@@ -51,7 +53,7 @@ class Header extends React.Component {
           </div>
         </div>
         <div className="header_left_section">
-          <div className="headerLogo">
+          <div className="header_logo">
             <h1>
               <NavLink to="/" activeClassName="">
                 БПИ
@@ -78,29 +80,29 @@ class Header extends React.Component {
 
             <p>
               <a href="tel:+375172222222">
-                +375 17 <strong>222-22-22</strong>
-                <img src="./src/img/index/t-gor.png" alt="t-gor" />
+                +375 17 <strong>222-22-22 </strong>
+                <img src="/src/img/index/t-gor.png" alt="t-gor" />
               </a>
             </p>
 
             <p>
               <a href="tel:+375297777777">
-                +375 29 <strong>777-77-77</strong>
-                <img src="./src/img/index/t-mts2.png" alt="t-mts" />
+                +375 29 <strong>777-77-77 </strong>
+                <img src="/src/img/index/t-mts2.png" alt="t-mts" />
               </a>
             </p>
 
             <p>
               <a href="tel:+375446666666">
-                +375 44 <strong>666-66-66</strong>
-                <img src="./src/img/index/t-vel2.png" alt="t-vel" />
+                +375 44 <strong>666-66-66 </strong>
+                <img src="/src/img/index/t-vel2.png" alt="t-vel" />
               </a>
             </p>
             <p>
               <strong>
                 <a href="mailto:hydro@bpi.by" style={this.colorBlack}>
                   hydro@bpi.by
-                  <img src="./src/img/index/email.png" alt="email" />
+                  <img src="/src/img/index/email.png" alt="email" />
                 </a>
               </strong>
             </p>

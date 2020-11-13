@@ -1,0 +1,37 @@
+.Engineering_power_pack{
+    line-height: 1.4;
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    padding: 20px 40px 80px;
+}
+
+.Engineering_power_pack ul {
+    list-style-image: url("../img/check.png");
+}
+
+.Engineering_power_pack .drawing_scheme {
+    text-align: center;
+   
+}
+
+.Engineering_power_pack .drawing_scheme img {
+    margin: 0 20px;
+}
+
+.Engineering_power_pack li {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.Engineering_power_pack .wrap_maslostancia {
+    text-align: center;
+}
+
+@media (max-width: 880px) {
+    .Engineering_power_pack .wrap_maslostancia img {
+        width: 100%;
+    }
+    .Engineering_power_pack .drawing_scheme img {
+        width: 80%;
+    }
+}

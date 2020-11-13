@@ -1,0 +1,105 @@
+.price_chart {
+  font-size: 12px;
+  color: green;
+  margin: -10px 0 10px 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.price_chart:hover {
+  color: rgb(0, 73, 0);
+  cursor: pointer;
+}
+
+.pieces{
+  color: green;
+  font-size: 12px;
+  margin: -10px 0 10px 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.green{
+  color: green;
+}
+
+.red{
+  color:red;
+}
+
+.preview.position {
+  text-align: center;
+  min-width: 175px;
+  font-size: 18px;
+  margin-right: 50px;
+  list-style: none;
+}
+
+.preview {
+  display: block;
+  padding: 18px;
+  flex-basis: 125px;
+  margin-right: 40px;
+  margin-top: 30px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.preview button {
+  display: inline-block;
+  color: black;
+  font-size: 90%;
+  font-weight: 700;
+  text-decoration: none;
+  user-select: none;
+  padding: 0.25em 0.5em;
+  outline: none;
+  border: 1px solid rgb(250, 172, 17);
+  border-radius: 7px;
+  background: rgb(255, 212, 3)
+    linear-gradient(rgb(255, 212, 3), rgb(248, 157, 23));
+  box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0),
+    inset 0 1px 2px rgba(0, 0, 0, 0), inset 0 0 0 60px rgba(255, 255, 0, 0);
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.preview  button.not_active {
+  background: #ccc;
+  border: #ccc;
+}
+
+.preview button:hover {
+  box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0),
+    inset 0 1px 2px rgba(0, 0, 0, 0), inset 0 0 0 60px rgba(255, 255, 0, 0.5);
+}
+
+
+.preview button.not_active:hover {
+  background: #ccc;
+  box-shadow:none;
+}
+
+.preview button:active {
+  padding: calc(0.25em + 1px) 0.5em calc(0.25em - 1px);
+  border-color: rgba(177, 159, 0, 1);
+  box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.1),
+    inset 0 1px 2px rgba(0, 0, 0, 0.3), inset 0 0 0 60px rgba(255, 255, 0, 0.45);
+}
+
+.preview.position h5 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.preview.position h6 {
+  font-size: 15px;
+  margin: 15px 0;
+}
+
+.preview.position li {
+  position: relative;
+}
+
+.preview.position i {
+  position: absolute;
+  top: 0;
+  right: -10px;
+}

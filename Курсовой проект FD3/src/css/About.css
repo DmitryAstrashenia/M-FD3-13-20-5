@@ -1,0 +1,28 @@
+.About  {
+    height: auto;
+    padding: 0 40px 80px;
+    background-color: white;
+    min-height: calc(100vh - 350px);
+}
+
+.About h2 {
+    text-align: center;
+}
+
+.About h4 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.About .img_about {
+    width: 100%;
+}
+
+.About ul {
+    margin-top: 50px;
+    list-style-image: url("../img/check.png");
+}
+
+.About li {
+    margin-bottom: 10px;
+}

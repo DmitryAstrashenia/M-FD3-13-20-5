@@ -1,0 +1,168 @@
+.Contacts{
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    padding: 20px 40px 80px;
+}
+
+.Contacts h2 {
+    text-align: center;
+}
+
+.Contacts .wrapper_contacts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+
+.Contacts p {
+    margin: 0;
+    line-height: 1.4;
+}
+
+.Contacts a {
+    text-decoration: none;
+    color: black;
+}
+
+.Contacts .wrap_contacts {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.Contacts .map_mob {
+    display: none;
+}
+
+.Contacts .branch,
+.main_office {
+    width: 320px;
+    margin-bottom: 20px;
+}
+
+.Contacts .wpapper_feedback {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.Contacts .feedback {
+    margin: 0 auto;
+    max-width: 900px;
+    background-color: #eeeeee;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    box-sizing: border-box;
+    padding: 20px 0;
+}
+
+.Contacts .feedback-group {
+    margin: 20px auto;
+    max-width: 445px;
+    padding: 0 5px;
+}
+
+.Contacts .feedback-label span {
+    font-weight: bold;
+    color: #615b55;
+    margin-bottom: 7px;
+    width: 20%;
+    margin-left: 5px;
+    display: inline-block;
+}
+
+.Contacts .feedback-input {
+    padding: 7px 0 6px 32px;
+    box-sizing: border-box;
+    border: 1px solid #a9a9a9;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    width: 78%;
+    display: inline-block;
+}
+
+.Contacts .feedback-input:focus {
+    border: 1px solid grey;
+}
+
+.Contacts .feedback-label {
+    width: 100%;
+    display: block;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.Contacts .feedback-label i {
+    position: absolute;
+    opacity: 0.5;
+    font-size: 16px;
+    left: 24%;
+    top: 20%;
+}
+
+.Contacts .feedback-textarea {
+    width: 100%;
+    min-height: 100px;
+    padding-left: 30px;
+    padding-top: 7px;
+    border: 1px solid #a9a9a9;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+.Contacts .feedback-textarea:focus {
+    border: 1px solid grey;
+}
+
+.Contacts .feedback-button {
+    display: block;
+    padding: 7px 0;
+    width: 150px;
+    margin: 10px auto;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, rgba(150, 157, 165, 1) 0, rgba(109, 117, 124, 1) 36%, rgba(40, 52, 59, 1) 100%);
+    border: 1px solid grey;
+    color: white;
+}
+
+.Contacts .feedback .feedback-label .fa-pen-alt {
+    left: 10px;
+    top: 26px;
+}
+
+.Contacts .feedback-select {
+    padding: 7px 0 6px 32px;
+    box-sizing: border-box;
+    border: 1px solid #a9a9a9;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    width: 78%;
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .Contacts .wrapper_contacts {
+        grid-template-columns: 1fr;
+        padding-left: 10px;
+    }
+    .Contacts .wpapper_feedback {
+        grid-column-start: auto;
+        grid-column-end: auto;
+    }
+}
+
+@media (max-width: 544px) {
+    .Contacts .feedback-label i {
+        top: 54%;
+        left: 3%;
+    }
+    .Contacts .map_desktop {
+        display: none;
+    }
+    .Contacts .map_mob {
+        display: contents;
+    }
+}

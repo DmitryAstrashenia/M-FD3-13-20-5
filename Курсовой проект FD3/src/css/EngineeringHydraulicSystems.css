@@ -1,0 +1,19 @@
+.Engineering_hydraulic_systems  {
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    padding: 20px 40px 80px
+}
+
+.Engineering_hydraulic_systems p{
+    line-height: 1.4;
+    margin: 16px 0;
+}
+
+
+.Engineering_hydraulic_systems ul {
+    list-style-image: url("../img/check.png");
+}
+
+.Engineering_hydraulic_systems li {
+    margin-bottom: 10px;
+}

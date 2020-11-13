@@ -19,8 +19,6 @@ header .slick-slide {
 }
 
 header .slick-slide img {
-    height: 100%;
-    width: 100%;
     box-sizing: border-box;
 }
 
@@ -35,6 +33,10 @@ header .slick-dots li button:before {
 
 header .slick-dots li.slick-active button:before {
     color: white;
+}
+
+header .header_logo{
+    padding-top: 5px;
 }
 
 

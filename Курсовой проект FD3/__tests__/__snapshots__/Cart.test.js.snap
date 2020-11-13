@@ -1,0 +1,315 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`работа c корзиной/Cart 1`] = `
+<div
+  className="Cart"
+>
+  <ul
+    className="cartView"
+  >
+    <li>
+      <div>
+        <p>
+          Товар
+        </p>
+      </div>
+      <div>
+        <p>
+          Количество
+        </p>
+      </div>
+      <div>
+        <p>
+          Цена
+        </p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQECRVdCxETE-6-aAflOsCwbu6pVz35Tt40cg&usqp=CAU"
+        />
+        <p>
+          20C8.2X006
+        </p>
+      </div>
+      <div>
+        <button
+          className="minus"
+          onClick={[Function]}
+          type="button"
+        >
+          -
+        </button>
+        <p>
+          2
+          шт.
+        </p>
+        <button
+          onClick={[Function]}
+          type="button"
+        >
+          +
+        </button>
+      </div>
+      <div>
+        <p>
+          250
+          BYN
+        </p>
+        <button
+          onClick={[Function]}
+          type="button"
+        >
+          x
+        </button>
+      </div>
+    </li>
+    <li>
+      <p
+        className="total"
+      >
+        Итого: 
+        250
+         BYN
+      </p>
+    </li>
+  </ul>
+  <div
+    className="wpapper_feedback"
+  >
+    <h2
+      className="center"
+    >
+      Форма заказа
+    </h2>
+    <p
+      className="center"
+    >
+      Для заказа заполните форму и нажмите отправить:
+    </p>
+    <form
+      className="feedback"
+      id="form_cart"
+      onSubmit={[Function]}
+    >
+      <div
+        className="feedback-group "
+      >
+        <label
+          className="feedback-label"
+        >
+          <span>
+            Имя:
+          </span>
+          <input
+            className="feedback-input"
+            id="user"
+            onChange={[Function]}
+            placeholder="Введите Ваше имя"
+            type="text"
+          />
+          <div
+            className="err-message userErr invisible"
+          >
+            Введите ФИО
+          </div>
+          <i
+            className="far fa-user"
+          />
+        </label>
+        <label
+          className="feedback-label"
+        >
+          <span>
+            Email:
+          </span>
+          <input
+            className="feedback-input"
+            id="email"
+            onChange={[Function]}
+            placeholder="Введите адрес Вашей почты"
+            type="email"
+          />
+          <div
+            className="err-message emailErr invisible"
+          >
+            Введите почту для связи
+          </div>
+          <i
+            className="far fa-envelope"
+          />
+        </label>
+        <label
+          className="feedback-label"
+        >
+          <span>
+            Телефон:
+          </span>
+          <input
+            className="feedback-input"
+            id="tel"
+            onChange={[Function]}
+            placeholder="Введите номер телефона"
+            type="tel"
+          />
+          <div
+            className="err-message telErr invisible"
+          >
+            Введите номер телефона
+          </div>
+          <i
+            className="fas fa-mobile-alt"
+          />
+        </label>
+        <label
+          className="feedback-label"
+        >
+          <span>
+            Комментарий:
+          </span>
+          <textarea
+            className="feedback-textarea"
+            id="customer-text"
+            placeholder="Здравствуйте, БПИ!"
+          />
+          <i
+            className="fas fa-pen-alt"
+          />
+        </label>
+        <button
+          className="feedback-button"
+          onClick={[Function]}
+          type="button"
+        >
+          Отправить
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`работа c корзиной/Cart 2`] = `
+<div
+  className="Cart"
+>
+  <p
+    className="center"
+  >
+    Корзина пуста!
+  </p>
+  <div
+    className="wpapper_feedback"
+  >
+    <h2
+      className="center"
+    >
+      Форма заказа
+    </h2>
+    <p
+      className="center"
+    >
+      Для заказа заполните форму и нажмите отправить:
+    </p>
+    <form
+      className="feedback"
+      id="form_cart"
+      onSubmit={[Function]}
+    >
+      <div
+        className="feedback-group "
+      >
+        <label
+          className="feedback-label"
+        >
+          <span>
+            Имя:
+          </span>
+          <input
+            className="feedback-input"
+            id="user"
+            onChange={[Function]}
+            placeholder="Введите Ваше имя"
+            type="text"
+          />
+          <div
+            className="err-message userErr invisible"
+          >
+            Введите ФИО
+          </div>
+          <i
+            className="far fa-user"
+          />
+        </label>
+        <label
+          className="feedback-label"
+        >
+          <span>
+            Email:
+          </span>
+          <input
+            className="feedback-input"
+            id="email"
+            onChange={[Function]}
+            placeholder="Введите адрес Вашей почты"
+            type="email"
+          />
+          <div
+            className="err-message emailErr invisible"
+          >
+            Введите почту для связи
+          </div>
+          <i
+            className="far fa-envelope"
+          />
+        </label>
+        <label
+          className="feedback-label"
+        >
+          <span>
+            Телефон:
+          </span>
+          <input
+            className="feedback-input"
+            id="tel"
+            onChange={[Function]}
+            placeholder="Введите номер телефона"
+            type="tel"
+          />
+          <div
+            className="err-message telErr invisible"
+          >
+            Введите номер телефона
+          </div>
+          <i
+            className="fas fa-mobile-alt"
+          />
+        </label>
+        <label
+          className="feedback-label"
+        >
+          <span>
+            Комментарий:
+          </span>
+          <textarea
+            className="feedback-textarea"
+            id="customer-text"
+            placeholder="Здравствуйте, БПИ!"
+          />
+          <i
+            className="fas fa-pen-alt"
+          />
+        </label>
+        <button
+          className="feedback-button"
+          onClick={[Function]}
+          type="button"
+        >
+          Отправить
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;

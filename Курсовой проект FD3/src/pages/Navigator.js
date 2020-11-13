@@ -1,7 +1,9 @@
 "use scrict";
 
 import React from "react";
+import headerFixNav from "../components/function/headerFixNav"
 import { NavLink } from "react-router-dom";
+import { myEvents } from "../components/module/events";
 import "..//css/Navigator.css";
 
 class Navigator extends React.Component {
@@ -18,7 +20,34 @@ class Navigator extends React.Component {
     display: "none",
   };
 
+  amountGoodsInCart = () => {
+    if (JSON.parse(localStorage.getItem("cartOrder"))) {
+      let cartOrder = JSON.parse(localStorage.getItem("cartOrder"));
+      let piecesGoods = document.querySelector("#pieses_goods");
+      if (Object.keys(cartOrder).length > 0) {
+        piecesGoods.setAttribute("style", "display:inline-block");
+        piecesGoods.innerHTML = Object.keys(cartOrder).length;
+      } else {
+        piecesGoods.setAttribute("style", "display:none");
+      }
+    }
+  }
+
+  componentDidMount = () => {
+    myEvents.addListener("amountGoodsInCart", this.amountGoodsInCart);
+    { this.amountGoodsInCart() }
+    { headerFixNav() }
+  };
+
+  componentWillUnmount = () => {
+    myEvents.removeListener("amountGoodsInCart", this.amountGoodsInCart);
+    { this.amountGoodsInCart() }
+    { headerFixNav() }
+  };
+
+
   render() {
+    console.log("Navigator")
     return (
       <nav className="nav-hor" id="nav">
         <ul>
@@ -36,19 +65,22 @@ class Navigator extends React.Component {
                 <a>Инжиниринг</a>
                 <ul>
                   <li>
-                    <a href="engineering_hydraulic_systems">
+                    <NavLink
+                      to="/engineering_hydraulic_systems"
+                      activeClassName=""
+                    >
                       Проектирование гидросистем
-                    </a>
+                    </NavLink>
                   </li>
                   <li>
-                    <a href="engineering_power_pack">
+                    <NavLink to="/engineering_power_pack" activeClassName="">
                       Проектирование гидростанций
-                    </a>
+                    </NavLink>
                   </li>
                   <li>
-                    <a href="production_power_pack">
+                    <NavLink to="/production_power_pack" activeClassName="">
                       Производство гидростанций
-                    </a>
+                    </NavLink>
                   </li>
                 </ul>
               </li>
@@ -57,13 +89,13 @@ class Navigator extends React.Component {
                 <a>Сервис гидравлики</a>
                 <ul>
                   <li>
-                    <a href="hydraulics_diagnostics">Диагностика и ремонт</a>
+                    <NavLink to="/hydraulics_diagnostics">Диагностика и ремонт</NavLink>
                   </li>
                   <li>
-                    <a href="service_center">Сервисный центр</a>
+                    <NavLink to="/service_center">Сервисный центр</NavLink>
                   </li>
                   <li>
-                    <a href="hydrofication">Гидрофикация</a>
+                    <NavLink to="/hydrofication">Гидрофикация</NavLink>
                   </li>
                 </ul>
               </li>
@@ -72,62 +104,62 @@ class Navigator extends React.Component {
                 <a>Продажа</a>
                 <ul>
                   <li>
-                    <a href="pump_motor">Гидронасосы, гидромоторы</a>
+                    <NavLink to="/pump-motor">Гидронасосы, гидромоторы</NavLink>
                   </li>
                   <li>
-                    <a href="valve">Гидроклапаны</a>
+                    <NavLink to="/valve">Гидроклапаны</NavLink>
                   </li>
                   <li>
-                    <a href="directional_valve">Гидрораспределители</a>
+                    <NavLink to="/directional_valve">Гидрораспределители</NavLink>
                   </li>
                   <li>
-                    <a href="hydraulics_accessories">
+                    <NavLink to="/hydraulics_accessories">
                       Аксессуары для гидравлики
-                    </a>
+                    </NavLink>
                   </li>
                   <li>
-                    <a href="accumulator">Гидроаккумуляторы</a>
+                    <NavLink to="/accumulator">Гидроаккумуляторы</NavLink>
                   </li>
                   <li>
-                    <a href="radiators">Теплообменники</a>
+                    <NavLink to="/radiators">Теплообменники</NavLink>
                   </li>
                   <li>
-                    <a href="filters">Фильтры</a>
+                    <NavLink to="/filters">Фильтры</NavLink>
                   </li>
                 </ul>
               </li>
             </ul>
           </li>
           <li>
-            <NavLink to="about" activeClassName="active">
+            <NavLink to="/about" activeClassName="active">
               О компании
             </NavLink>
           </li>
           <li>
-            <NavLink to="gallery" activeClassName="active">
+            <NavLink to="/gallery" activeClassName="active">
               Галерея
             </NavLink>
           </li>
           <li>
-            <NavLink to="suppliers" activeClassName="active">
+            <NavLink to="/suppliers" activeClassName="active">
               Поставщики
             </NavLink>
           </li>
           <li>
-            <NavLink to="contacts" activeClassName="active">
+            <NavLink to="/contacts" activeClassName="active">
               Контакты
             </NavLink>
           </li>
-          <li>
-            <a className="mainmenu__link" href="shopping_cart">
+          <li id="cart">
+            <NavLink to="/shopping_cart">
               Корзина
               <span id="pieses_goods" style={this.displayNone}></span>
-            </a>
+            </NavLink>
           </li>
         </ul>
-        <a href="#" className="icon" onClick={this.openMenu}>
+        <NavLink to="#" className="icon" onClick={this.openMenu}>
           <i className="fa fa-bars"></i>
-        </a>
+        </NavLink>
       </nav>
     );
   }
