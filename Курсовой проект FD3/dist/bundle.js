@@ -42863,7 +42863,7 @@ var ViewCardsGoods = function (_React$PureComponent) {
       }
 
       if (!this.state.data && !this.state.error) {
-        console.log("Cards-" + this.state.name + " spinner");
+        console.log("ViewCardsGoods-" + this.state.name + " spinner");
         return _react2.default.createElement(
           "div",
           null,
