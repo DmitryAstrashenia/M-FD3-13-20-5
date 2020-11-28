@@ -1,1 +1,1 @@
-it-academy. Homeworks
+it-academy. Web Development Using React & Angular
