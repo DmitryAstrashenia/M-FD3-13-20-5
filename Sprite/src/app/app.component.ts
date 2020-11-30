@@ -32,6 +32,7 @@ export class AppComponent {
   getOffsetY(): number {
     return this.offsetY;
   }
+  
 
   move(): void {
     if (this.offsetX / this.width == -3) {

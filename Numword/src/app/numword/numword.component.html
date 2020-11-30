@@ -1,0 +1,3 @@
+<input type="text" #myInput (input)="false">
+<br>
+<span>{{myInput.value?"У Вас "+myInput.value+" ":" Введите количество яблок"}}{{myInput.value|numword:'яблоко':'яблока':'яблок'}}</span>
