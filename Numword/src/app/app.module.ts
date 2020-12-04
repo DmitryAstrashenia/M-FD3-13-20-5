@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NumwordComponent } from './numword/numword.component';
-import { NumwordPipe } from './numword/numword.pupe';
+import { NumwordPipe } from './numword/numword.pipe';
 
 @NgModule({
   declarations: [AppComponent, NumwordComponent, NumwordPipe],

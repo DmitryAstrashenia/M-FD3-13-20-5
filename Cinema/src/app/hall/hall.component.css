@@ -1,0 +1,26 @@
+.hall{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    margin-left: 24px;
+    margin-bottom: 50px;
+}
+
+.hall .place{
+    width: 30px;
+    height: 30px;
+    border: 1px black solid;
+    text-align: center;
+    margin-right: 48px;
+}
+
+.green {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
+}
+
