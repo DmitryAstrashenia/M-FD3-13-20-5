@@ -10,16 +10,10 @@ export class AppComponent {
   constructor(private chairs: TicketsService) {}
 
   title = 'Cinema';
-  buyedTickets: Array<any> = null;
+  public buyedTickets: Array<any> = null;
 
-  getNumberFreeChairs(): number {
-    let count = 0;
-    this.chairs.getChairs().forEach((item) => {
-      if (item) {
-        count++;
-      }
-    });
-    return count;
+  getNumberFreeChairs() {
+    return this.chairs.getNumberFreeChairs();
   }
 
   buyTickets(n: number) {

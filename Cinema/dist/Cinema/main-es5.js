@@ -207,13 +207,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(AppComponent, [{
         key: "getNumberFreeChairs",
         value: function getNumberFreeChairs() {
-          var count = 0;
-          this.chairs.getChairs().forEach(function (item) {
-            if (item) {
-              count++;
-            }
-          });
-          return count;
+          return this.chairs.getNumberFreeChairs();
         }
       }, {
         key: "buyTickets",
@@ -734,6 +728,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "getChairs",
         value: function getChairs() {
           return this.chairs;
+        }
+      }, {
+        key: "getNumberFreeChairs",
+        value: function getNumberFreeChairs() {
+          var count = 0;
+          this.chairs.forEach(function (item) {
+            if (item) {
+              count++;
+            }
+          });
+          return count;
         }
       }, {
         key: "buyRandomTickets",

@@ -106,13 +106,7 @@ class AppComponent {
         this.buyedTickets = null;
     }
     getNumberFreeChairs() {
-        let count = 0;
-        this.chairs.getChairs().forEach((item) => {
-            if (item) {
-                count++;
-            }
-        });
-        return count;
+        return this.chairs.getNumberFreeChairs();
     }
     buyTickets(n) {
         this.buyedTickets = this.chairs.buyRandomTickets(n);
@@ -352,6 +346,15 @@ class TicketsService {
     }
     getChairs() {
         return this.chairs;
+    }
+    getNumberFreeChairs() {
+        let count = 0;
+        this.chairs.forEach((item) => {
+            if (item) {
+                count++;
+            }
+        });
+        return count;
     }
     buyRandomTickets(n) {
         let options = [];

@@ -4,14 +4,24 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class TicketsService {
-  totalСhairs = 20;
-
   constructor() {}
+
+  totalСhairs = 20;
 
   private chairs = new Array(this.totalСhairs).fill(true);
 
   getChairs() {
     return this.chairs;
+  }
+
+  getNumberFreeChairs(): number {
+    let count = 0;
+    this.chairs.forEach((item) => {
+      if (item) {
+        count++;
+      }
+    });
+    return count;
   }
 
   buyRandomTickets(n: number) {
