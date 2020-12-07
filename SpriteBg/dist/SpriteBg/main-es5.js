@@ -132,7 +132,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       selectors: [["app-root"]],
       decls: 1,
       vars: 5,
-      consts: [[3, "appSpriteBg", "appSpriteBgWidth", "appSpriteBgHeight", "appSpriteBgOffsetX", "appSpriteBgOffsetY", "click"]],
+      consts: [["appSpriteBg", "", 3, "sprite-url", "sprite-offset-x", "sprite-offset-y", "sprite-width", "sprite-height", "click"]],
       template: function AppComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -145,7 +145,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
 
         if (rf & 2) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("appSpriteBg", ctx.getUrlImg())("appSpriteBgWidth", ctx.getWidth())("appSpriteBgHeight", ctx.getHeight())("appSpriteBgOffsetX", ctx.getOffsetX())("appSpriteBgOffsetY", ctx.getOffsetY());
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("sprite-url", ctx.getUrlImg())("sprite-offset-x", ctx.getOffsetX())("sprite-offset-y", ctx.getOffsetY())("sprite-width", ctx.getWidth())("sprite-height", ctx.getHeight());
         }
       },
       directives: [_sprite_bg_directive__WEBPACK_IMPORTED_MODULE_1__["SpriteBgDirective"]],
@@ -281,20 +281,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       function SpriteBgDirective(el) {
         _classCallCheck(this, SpriteBgDirective);
 
+        this.urlDefault = 'http://fe.it-academy.by/Examples/smileys.png';
+        this.widthDefault = '25';
+        this.heightDefault = '25';
+        this.offsetXDefault = '-25';
+        this.offsetYDefault = '0';
         this.el = el.nativeElement;
       }
 
       _createClass(SpriteBgDirective, [{
         key: "ngAfterViewInit",
         value: function ngAfterViewInit() {
-          this.el.style.backgroundImage = 'url(' + this.url + ')';
-          this.el.style.width = this.width + 'px';
-          this.el.style.height = this.height + 'px';
+          this.el.style.backgroundImage = "url(".concat("".concat(this.url || this.urlDefault), ")");
+          this.el.style.width = "".concat(this.width || this.widthDefault) + 'px';
+          this.el.style.height = "".concat(this.height || this.heightDefault) + 'px';
+          this.el.style.backgroundPosition = "".concat(this.offsetX || this.offsetXDefault, "px ").concat(this.offsetY || this.offsetYDefault, "px");
         }
       }, {
         key: "ngAfterViewChecked",
         value: function ngAfterViewChecked() {
-          this.el.style.backgroundPosition = this.offsetX + 'px' + ' ' + this.offsetY + 'px';
+          this.el.style.backgroundPosition = "".concat(this.offsetX, "px ").concat(this.offsetY, "px");
         }
       }]);
 
@@ -309,11 +315,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       type: SpriteBgDirective,
       selectors: [["", "appSpriteBg", ""]],
       inputs: {
-        url: ["appSpriteBg", "url"],
-        width: ["appSpriteBgWidth", "width"],
-        height: ["appSpriteBgHeight", "height"],
-        offsetX: ["appSpriteBgOffsetX", "offsetX"],
-        offsetY: ["appSpriteBgOffsetY", "offsetY"]
+        url: ["sprite-url", "url"],
+        width: ["sprite-width", "width"],
+        height: ["sprite-height", "height"],
+        offsetX: ["sprite-offset-x", "offsetX"],
+        offsetY: ["sprite-offset-y", "offsetY"]
       }
     });
     /*@__PURE__*/
@@ -331,23 +337,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         url: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
-          args: ['appSpriteBg']
+          args: ['sprite-url']
         }],
         width: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
-          args: ['appSpriteBgWidth']
+          args: ['sprite-width']
         }],
         height: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
-          args: ['appSpriteBgHeight']
+          args: ['sprite-height']
         }],
         offsetX: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
-          args: ['appSpriteBgOffsetX']
+          args: ['sprite-offset-x']
         }],
         offsetY: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
-          args: ['appSpriteBgOffsetY']
+          args: ['sprite-offset-y']
         }]
       });
     })();

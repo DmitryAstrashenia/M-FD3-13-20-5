@@ -1,10 +1,4 @@
-import {
-  Directive,
-  ElementRef,
-  Input,
-  AfterViewInit,
-  HostListener,
-} from '@angular/core';
+import { Directive, ElementRef, Input, AfterViewInit } from '@angular/core';
 
 @Directive({
   selector: '[appSpriteBg]',
@@ -16,29 +10,37 @@ export class SpriteBgDirective implements AfterViewInit {
     this.el = el.nativeElement;
   }
 
-  @Input('appSpriteBg')
+  private urlDefault: string = 'http://fe.it-academy.by/Examples/smileys.png';
+  private widthDefault: string = '25';
+  private heightDefault: string = '25';
+  private offsetXDefault: string = '-25';
+  private offsetYDefault: string = '0';
+
+  @Input('sprite-url')
   private url: string;
 
-  @Input('appSpriteBgWidth')
-  private width: number;
+  @Input('sprite-width')
+  private width: string;
 
-  @Input('appSpriteBgHeight')
-  private height: number;
+  @Input('sprite-height')
+  private height: string;
 
-  @Input('appSpriteBgOffsetX')
-  private offsetX: number;
+  @Input('sprite-offset-x')
+  private offsetX: string;
 
-  @Input('appSpriteBgOffsetY')
-  private offsetY: number;
+  @Input('sprite-offset-y')
+  private offsetY: string;
 
   ngAfterViewInit(): void {
-    this.el.style.backgroundImage = 'url(' + this.url + ')';
-    this.el.style.width = this.width + 'px';
-    this.el.style.height = this.height + 'px';
+    this.el.style.backgroundImage = `url(${`${this.url || this.urlDefault}`})`;
+    this.el.style.width = `${this.width || this.widthDefault}` + 'px';
+    this.el.style.height = `${this.height || this.heightDefault}` + 'px';
+    this.el.style.backgroundPosition = `${
+      this.offsetX || this.offsetXDefault
+    }px ${this.offsetY || this.offsetYDefault}px`;
   }
 
   ngAfterViewChecked(): void {
-    this.el.style.backgroundPosition =
-      this.offsetX + 'px' + ' ' + this.offsetY + 'px';
+    this.el.style.backgroundPosition = `${this.offsetX}px ${this.offsetY}px`;
   }
 }
