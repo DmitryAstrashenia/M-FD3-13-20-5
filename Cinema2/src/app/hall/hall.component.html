@@ -1,0 +1,5 @@
+<div class="hall" >
+    <p class="place" *ngFor="let item of getPlaces(); let i = index" [ngStyle]='{backgroundColor:item?"green":"red"}'>
+        <span>{{i+1}}</span>
+    </p>
+</div>

@@ -1,0 +1,51 @@
+.cash {
+  width: 175px;
+  height: 200px;
+  border: 1px black solid;
+  border-radius: 10px;
+  text-align: center;
+  display: inline-block;
+  margin:0 20px;
+}
+
+.cash h3 {
+  text-align: center;
+}
+
+.cash input {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  color: black;
+  font-size: 90%;
+  font-weight: 700;
+  text-decoration: none;
+  user-select: none;
+  padding: .25em .5em;
+  outline: none;
+  border: 1px solid rgb(250, 172, 17);
+  border-radius: 7px;
+  background: rgb(255, 212, 3) linear-gradient(rgb(255, 212, 3), rgb(248, 157, 23));
+  box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0), inset 0 1px 2px rgba(0, 0, 0, 0), inset 0 0 0 60px rgba(255, 255, 0, 0);
+  transition: box-shadow .2s, border-color .2s;
+}
+
+.cash input:hover {
+  box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0), inset 0 1px 2px rgba(0, 0, 0, 0), inset 0 0 0 60px rgba(255, 255, 0, .5);
+}
+
+.cash input:active {
+  
+  border-color: rgba(177, 159, 0, 1);
+  box-shadow: inset 0 -1px 1px rgba(0, 0, 0, .1), inset 0 1px 2px rgba(0, 0, 0, .3), inset 0 0 0 60px rgba(255, 255, 0, .45);
+}
+
+.cash span{
+    margin: 0 10px;
+}
+
+.cash input.buy{
+    width: 90px;
+    margin-top: 50px;
+
+}

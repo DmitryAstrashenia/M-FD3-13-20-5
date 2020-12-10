@@ -1,0 +1,16 @@
+<div class="cinema">
+  <app-hall></app-hall>
+  <app-cash status="Касса" (btnBuy)="buyTickets($event)"></app-cash>
+  <app-cash status="Интернер-касса" (btnBuy)="buyTickets($event)"></app-cash>
+  <p *ngIf="buyedTickets==null; else full"></p>
+  <ng-template #full>
+    <p *ngIf="!getNumberFreeChairs(); else fullfull">Свободных мест нет!</p>
+    <ng-template #fullfull>
+      <p *ngIf="buyedTickets.length==0">Таких вариантов не найдено! Свободных мест {{getNumberFreeChairs()}} </p>
+      <p *ngIf="buyedTickets.length==1">Вы купили билет №{{buyedTickets}}. Свободных мест {{getNumberFreeChairs()}}
+      </p>
+      <p *ngIf="buyedTickets.length>1">Вы купили билеты №{{buyedTickets}}. Свободных мест {{getNumberFreeChairs()}}
+      </p>
+    </ng-template>
+  </ng-template>
+</div>
